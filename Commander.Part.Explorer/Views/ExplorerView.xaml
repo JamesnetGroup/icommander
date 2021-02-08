@@ -5,30 +5,37 @@
                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
                 xmlns:ctrl="clr-namespace:Commander.Windows.Controls;assembly=Commander.Control"
                 mc:Ignorable="d" Style="{StaticResource UC.EXP}"
-                d:DesignHeight="450" d:DesignWidth="800">
+                d:DesignHeight="300" d:DesignWidth="600">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        
-        <StackPanel Orientation="Vertical">
-            <TextBox MinWidth="100" Text="{Binding CurrentFile.FullName}" Margin="0 -1 0 0" VerticalAlignment="Center" Padding="4 4 4 4"/>
-            <StackPanel Orientation="Horizontal">
-                <Button Content="Undo" ToolTip="Undo" Margin="0" x:Name="btnMoveUp" IsEnabled="{Binding IsMoveUpEnabled}" Style="{DynamicResource BTN.EXP.ICON}" Tag="MOVEUP"/>
-                <Button Content="Undo" ToolTip="Undo" Margin="0" x:Name="btnUndo" IsEnabled="{Binding IsUndoEnabled}" Style="{DynamicResource BTN.EXP.ICON}" Tag="UNDO"/>
-                <Button Content="Redo" ToolTip="Redo" Margin="0" x:Name="btnRedo" IsEnabled="{Binding IsRedoEnabled}" Style="{DynamicResource BTN.EXP.ICON}" Tag="REDO"/>
 
-                <Button Content="Open CMD" Margin="2" ToolTip="Command Prompt" x:Name="btnCMD" Style="{DynamicResource BTN.EXP.ICON}" Tag="CMD"/>
-                <Button Content="New Folder" Margin="2" ToolTip="New Folder" x:Name="btnNewFolder" Style="{DynamicResource BTN.EXP.ICON}" Tag="CREATEFOLDER"/>
-                <Button Content="Copy Tab" Margin="2" ToolTip="Copy Tab" x:Name="btnCopyTab" Style="{DynamicResource BTN.EXP.ICON}" Tag="NEWFOLDER"/>
-                <Button Content="Close Tab" Margin="2" ToolTip="Close Tab" x:Name="btnCloseTab" Style="{DynamicResource BTN.EXP.ICON}" Tag="CLOSE"/>
-                <ToggleButton Content="Hidden Visible" Style="{DynamicResource BTN_SHOWALLFILES}" ToolTip="Show All Files"
-                          Margin="2" Padding="4" IsChecked="{Binding IsHiddenVisibility, Mode=TwoWay}"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Content="Undo" ToolTip="Undo" Margin="0" x:Name="btnMoveUp" IsEnabled="{Binding IsMoveUpEnabled}" Style="{DynamicResource BTN.EXP.ICON}" Tag="MOVEUP"/>
+            <Button Grid.Column="1" Content="Undo" ToolTip="Undo" Margin="0" x:Name="btnUndo" IsEnabled="{Binding IsUndoEnabled}" Style="{DynamicResource BTN.EXP.ICON}" Tag="UNDO"/>
+            <Button Grid.Column="2" Content="Redo" ToolTip="Redo" Margin="0" x:Name="btnRedo" IsEnabled="{Binding IsRedoEnabled}" Style="{DynamicResource BTN.EXP.ICON}" Tag="REDO"/>
+            <TextBox Grid.Column="3" Style="{StaticResource TXT.EXP.PATH}"/>
 
-            </StackPanel>
-        </StackPanel>
+            <ToggleButton Grid.Column="4" Content="Hidden Visible" Style="{DynamicResource IN.HIDDEN}" ToolTip="Show All Files" Padding="4" IsChecked="{Binding IsHiddenVisibility, Mode=TwoWay}"/>
+            <Button Grid.Column="5" Content="Open CMD" ToolTip="Command Prompt" x:Name="btnCMD" Style="{DynamicResource BTN.EXP.ICON}" Tag="CMD"/>
+            <Button Grid.Column="6" Content="New Folder" ToolTip="New Folder" x:Name="btnNewFolder" Style="{DynamicResource BTN.EXP.ICON}" Tag="CREATEFOLDER"/>
+            <Button Grid.Column="7" Content="Copy Tab" ToolTip="Copy Tab" x:Name="btnCopyTab" Style="{DynamicResource BTN.EXP.ICON}" Tag="NEWFOLDER"/>
+            <Button Grid.Column="8" Content="Close Tab" ToolTip="Close Tab" x:Name="btnCloseTab" Style="{DynamicResource BTN.EXP.ICON}" Tag="CLOSE"/>
+        </Grid>
 
         <ListView Grid.Row="1" ItemsSource="{Binding FileDatas}" SelectionMode="Extended" x:Name="lv"
                   PreviewKeyDown="lv_PreviewKeyDown" 

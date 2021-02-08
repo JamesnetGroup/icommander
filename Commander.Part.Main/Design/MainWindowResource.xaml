@@ -2,9 +2,9 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:ctrl="clr-namespace:Commander.Windows.Controls;assembly=Commander.Control">
     
-    <LinearGradientBrush x:Key="LGB.BAR" StartPoint="0, 0.5" EndPoint="1, 0.5">
-        <GradientStop Color="#151515" Offset="0.0" />
-        <GradientStop Color="#333333" Offset="1.0" />
+    <LinearGradientBrush x:Key="LGB.BAR" StartPoint="0.5, 0" EndPoint="0.5, 1">
+        <GradientStop Color="#101010" Offset="0.0" />
+        <GradientStop Color="#252525" Offset="1.0" />
     </LinearGradientBrush>
 
     <Style TargetType="{x:Type ctrl:NcoreIcon}" x:Key="ICON.MINIMIZE" BasedOn="{StaticResource ICON}">
@@ -35,12 +35,12 @@
     </Style>
 
     <Style TargetType="{x:Type ctrl:NcoreIcon}" x:Key="ICON.TITLE" BasedOn="{StaticResource ICON}">
-        <Setter Property="Data" Value="{StaticResource GEO.FOLDER}"/>
+        <Setter Property="Data" Value="{StaticResource GEO.FOLDER.TABLE}"/>
         <Setter Property="Fill" Value="#FFFFFF"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
-        <Setter Property="Margin" Value="10 10 10 10"/>
-        <Setter Property="Width" Value="15"/>
-        <Setter Property="Height" Value="15"/>
+        <Setter Property="Margin" Value="10 10 6 10"/>
+        <Setter Property="Width" Value="18"/>
+        <Setter Property="Height" Value="18"/>
     </Style>
 
     <Style TargetType="{x:Type ctrl:NcoreIcon}" x:Key="IN.RESIZE" BasedOn="{StaticResource ICON}">
@@ -119,7 +119,7 @@
     </Style>
 
     <Style TargetType="{x:Type Button}" x:Key="IN.CLOSE">
-        <Setter Property="Background" Value="#333333"/>
+        <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Foreground" Value="#ffffff"/>
         <Setter Property="Margin" Value="0"/>
         <Setter Property="Template">
@@ -183,7 +183,7 @@
         <Setter Property="WindowStyle" Value="None"/>
         <Setter Property="AllowsTransparency" Value="False"/>
         <Setter Property="ResizeMode" Value="NoResize"/>
-        <Setter Property="Background" Value="#7799bd"/>
+        <Setter Property="Background" Value="#252525"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Width" Value="660"/>
         <Setter Property="Height" Value="495"/>
@@ -191,6 +191,9 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ctrl:NcoreWindow}">
                     <ControlTemplate.Resources>
+                        <Style TargetType="{x:Type DockPanel}" x:Key="IN.DOCK">
+                            <Setter Property="Background" Value="#252525"/>
+                        </Style>
                         <Style TargetType="{x:Type Grid}" x:Key="IN.TITLEBAR">
                             <Setter Property="DockPanel.Dock" Value="Top"/>
                             <Setter Property="Background" Value="{StaticResource LGB.BAR}"/>
@@ -212,7 +215,7 @@
                             <Setter Property="VerticalAlignment" Value="Top"/>
                         </Style>
                     </ControlTemplate.Resources>
-                    <DockPanel Margin="0" Background="#ffffff">
+                    <DockPanel Style="{StaticResource IN.DOCK}">
                         <Grid x:Name="PART_TaskBar" Style="{StaticResource IN.TITLEBAR}">
                             <StackPanel Style="{StaticResource IN.LEFT}">
                                 <ctrl:NcoreIcon Style="{StaticResource ICON.TITLE}"/>
@@ -225,12 +228,10 @@
                             </StackPanel>
                         </Grid>
 
-                        <Border BorderBrush="#999999" BorderThickness="1" DockPanel.Dock="Bottom">
-                            <Grid>
-                                <ContentPresenter/>
-                                <Thumb x:Name="PART_Resize" Style="{StaticResource IN.THUMB}"/>
-                            </Grid>
-                        </Border>
+                        <Grid>
+                            <ContentPresenter/>
+                            <Thumb x:Name="PART_Resize" Style="{StaticResource IN.THUMB}"/>
+                        </Grid>
                     </DockPanel>
                 </ControlTemplate>
             </Setter.Value>
