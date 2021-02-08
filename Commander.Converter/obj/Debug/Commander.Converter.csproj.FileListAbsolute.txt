@@ -1,0 +1,5 @@
+C:\ncoresoft\icommander\Commander.Converter\bin\Debug\Commander.Converter.dll
+C:\ncoresoft\icommander\Commander.Converter\bin\Debug\Commander.Converter.pdb
+C:\ncoresoft\icommander\Commander.Converter\obj\Debug\Commander.Converter.csproj.CoreCompileInputs.cache
+C:\ncoresoft\icommander\Commander.Converter\obj\Debug\Commander.Converter.dll
+C:\ncoresoft\icommander\Commander.Converter\obj\Debug\Commander.Converter.pdb

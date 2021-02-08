@@ -1,0 +1,5 @@
+C:\ncoresoft\icommander\Commander.WindowsBase\bin\Debug\Commander.WindowsBase.dll
+C:\ncoresoft\icommander\Commander.WindowsBase\bin\Debug\Commander.WindowsBase.pdb
+C:\ncoresoft\icommander\Commander.WindowsBase\obj\Debug\Commander.WindowsBase.csproj.CoreCompileInputs.cache
+C:\ncoresoft\icommander\Commander.WindowsBase\obj\Debug\Commander.WindowsBase.dll
+C:\ncoresoft\icommander\Commander.WindowsBase\obj\Debug\Commander.WindowsBase.pdb

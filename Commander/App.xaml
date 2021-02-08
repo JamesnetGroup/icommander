@@ -1,0 +1,22 @@
+﻿<Application x:Class="Commander.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!--<ResourceDictionary Source="/DevFlow.Resources;component/Design/GeometryResource.xaml"/>
+                <ResourceDictionary Source="/DevFlow.Resources;component/Design/ConverterResource.xaml"/>
+                <ResourceDictionary Source="/DevFlow.Resources;component/Design/NcoreViewResource.xaml"/>
+                <ResourceDictionary Source="/DevFlow.Part.GitHub;component/Design/GitHubViewResource.xaml"/>
+                <ResourceDictionary Source="/DevFlow.Part.ImagesGallery;component/Design/ImageViewResource.xaml"/>
+                <ResourceDictionary Source="/DevFlow.Part.Settings;component/Design/SettingViewResource.xaml"/>
+                <ResourceDictionary Source="/DevFlow.Part.Shutdown;component/Design/ShutdownViewResource.xaml"/>
+                <ResourceDictionary Source="/DevFlow.Part.TaskMonitor;component/Design/TaskViewResource.xaml"/>-->
+                <ResourceDictionary Source="/Commander.Resources;component/Design/GeometryResource.xaml"/>
+                <ResourceDictionary Source="/Commander.Resources;component/Design/ConverterResource.xaml"/>
+                <ResourceDictionary Source="/Commander.Part.Explorer;component/Design/ExplorerViewResource.xaml"/>
+                <ResourceDictionary Source="/Commander.Part.Main;component/Design/MainWindowResource.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,9 @@
+C:\ncoresoft\icommander\Commander.WindowsReference\bin\Debug\Commander.WindowsReference.dll.config
+C:\ncoresoft\icommander\Commander.WindowsReference\bin\Debug\Commander.WindowsReference.dll
+C:\ncoresoft\icommander\Commander.WindowsReference\bin\Debug\Commander.WindowsReference.pdb
+C:\ncoresoft\icommander\Commander.WindowsReference\obj\Debug\Commander.WindowsReference.csprojAssemblyReference.cache
+C:\ncoresoft\icommander\Commander.WindowsReference\obj\Debug\Commander.WindowsReference.Properties.Resources.resources
+C:\ncoresoft\icommander\Commander.WindowsReference\obj\Debug\Commander.WindowsReference.csproj.GenerateResource.cache
+C:\ncoresoft\icommander\Commander.WindowsReference\obj\Debug\Commander.WindowsReference.csproj.CoreCompileInputs.cache
+C:\ncoresoft\icommander\Commander.WindowsReference\obj\Debug\Commander.WindowsReference.dll
+C:\ncoresoft\icommander\Commander.WindowsReference\obj\Debug\Commander.WindowsReference.pdb

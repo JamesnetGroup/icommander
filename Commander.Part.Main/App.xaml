@@ -1,0 +1,17 @@
+﻿<Application x:Class="Commander.Part.Main.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!--<ResourceDictionary Source="/Commander.Resources;component/Design/ConverterResource.xaml"/>
+                <ResourceDictionary Source="/Commander.Resources;component/Design/NcoreViewResource.xaml"/>
+                <ResourceDictionary Source="/Commander.Part.Shutdown;component/Design/ShutdownViewResource.xaml"/>-->
+                <ResourceDictionary Source="/Commander.Resources;component/Design/GeometryResource.xaml"/>
+                <ResourceDictionary Source="/Commander.Resources;component/Design/ConverterResource.xaml"/>
+                <ResourceDictionary Source="/Commander.Part.Explorer;component/Design/ExplorerViewResource.xaml"/>
+                <ResourceDictionary Source="/Commander.Part.Main;component/Design/MainWindowResource.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

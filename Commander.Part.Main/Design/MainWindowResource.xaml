@@ -1,0 +1,245 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:ctrl="clr-namespace:Commander.Windows.Controls;assembly=Commander.Control">
+    
+    <LinearGradientBrush x:Key="LGB.BAR" StartPoint="0, 0.5" EndPoint="1, 0.5">
+        <GradientStop Color="#151515" Offset="0.0" />
+        <GradientStop Color="#333333" Offset="1.0" />
+    </LinearGradientBrush>
+
+    <Style TargetType="{x:Type ctrl:NcoreIcon}" x:Key="ICON.MINIMIZE" BasedOn="{StaticResource ICON}">
+        <Setter Property="Data" Value="{StaticResource GEO.MINIMIZE}"/>
+        <Setter Property="Fill" Value="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="10 10 10 10"/>
+        <Setter Property="Width" Value="15"/>
+        <Setter Property="Height" Value="15"/>
+    </Style>
+
+    <Style TargetType="{x:Type ctrl:NcoreIcon}" x:Key="ICON.MAXIMIZE" BasedOn="{StaticResource ICON}">
+        <Setter Property="Data" Value="{StaticResource GEO.MAXIMIZE}"/>
+        <Setter Property="Fill" Value="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="10 10 10 10"/>
+        <Setter Property="Width" Value="15"/>
+        <Setter Property="Height" Value="15"/>
+    </Style>
+
+    <Style TargetType="{x:Type ctrl:NcoreIcon}" x:Key="ICON.CLOSE" BasedOn="{StaticResource ICON}">
+        <Setter Property="Data" Value="{StaticResource GEO.CLOSE}"/>
+        <Setter Property="Fill" Value="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="10 10 10 10"/>
+        <Setter Property="Width" Value="15"/>
+        <Setter Property="Height" Value="15"/>
+    </Style>
+
+    <Style TargetType="{x:Type ctrl:NcoreIcon}" x:Key="ICON.TITLE" BasedOn="{StaticResource ICON}">
+        <Setter Property="Data" Value="{StaticResource GEO.FOLDER}"/>
+        <Setter Property="Fill" Value="#FFFFFF"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="10 10 10 10"/>
+        <Setter Property="Width" Value="15"/>
+        <Setter Property="Height" Value="15"/>
+    </Style>
+
+    <Style TargetType="{x:Type ctrl:NcoreIcon}" x:Key="IN.RESIZE" BasedOn="{StaticResource ICON}">
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Data" Value="{StaticResource GEO.RESIZE}"/>
+        <Setter Property="Fill" Value="#AAAAAA"/>
+        <Setter Property="Width" Value="15"/>
+        <Setter Property="Height" Value="15"/>
+    </Style>
+
+    <Style TargetType="{x:Type Button}" x:Key="IN.MINIMIZE">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="#DDDDDD"/>
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <ControlTemplate.Resources>
+                        <Style TargetType="{x:Type Border}" x:Key="IN.BORDER">
+                            <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Background}"/>
+                        </Style>
+                    </ControlTemplate.Resources>
+                    <Border Style="{StaticResource IN.BORDER}">
+                        <ctrl:NcoreIcon Style="{StaticResource ICON.MINIMIZE}"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#3665B3"/>
+                            <Setter Property="Foreground" Value="#ffffff"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" Value="#c75050"/>
+                            <Setter Property="Foreground" Value="#FFFFFF"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" Value="0.3"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style TargetType="{x:Type Button}" x:Key="IN.MAXIMIZE">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="#DDDDDD"/>
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <ControlTemplate.Resources>
+                        <Style TargetType="{x:Type Border}" x:Key="IN.BORDER">
+                            <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Background}"/>
+                        </Style>
+                    </ControlTemplate.Resources>
+                    <Border Style="{StaticResource IN.BORDER}">
+                        <ctrl:NcoreIcon Style="{StaticResource ICON.MAXIMIZE}"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#3665b3"/>
+                            <Setter Property="Foreground" Value="#ffffff"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" Value="#c75050"/>
+                            <Setter Property="Foreground" Value="#FFFFFF"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" Value="0.3"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type Button}" x:Key="IN.CLOSE">
+        <Setter Property="Background" Value="#333333"/>
+        <Setter Property="Foreground" Value="#ffffff"/>
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <ControlTemplate.Resources>
+                        <Style TargetType="{x:Type Border}" x:Key="IN.BORDER">
+                            <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Background}"/>
+                        </Style>
+                    </ControlTemplate.Resources>
+                    <Border Style="{StaticResource IN.BORDER}">
+                        <ctrl:NcoreIcon Style="{StaticResource ICON.CLOSE}"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#e04343"/>
+                            <Setter Property="Foreground" Value="#ffffff"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" Value="#b43838"/>
+                            <Setter Property="Foreground" Value="#FFFFFF"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" Value="0.3"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type Thumb}" x:Key="IN.THUMB">
+        <Setter Property="Grid.Row" Value="1"/>
+        <Setter Property="VerticalAlignment" Value="Bottom"/>
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+        <Setter Property="Cursor" Value="SizeNWSE"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Thumb}">
+                    <ControlTemplate.Resources>
+                        <Style TargetType="{x:Type Border}" x:Key="IN.BORDER">
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="Width" Value="20"/>
+                            <Setter Property="Height" Value="20"/>
+                        </Style>
+                    </ControlTemplate.Resources>
+                    <Border Style="{StaticResource IN.BORDER}">
+                        <ctrl:NcoreIcon Style="{StaticResource IN.RESIZE}"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type ctrl:NcoreWindow}" x:Key="WIN.MAIN">
+        <Setter Property="WindowChrome.CaptionHeight" Value="0"/>
+        <Setter Property="WindowChrome.CornerRadius" Value="0"/>
+        <Setter Property="WindowChrome.GlassFrameThickness" Value="0"/>
+        <Setter Property="WindowChrome.NonClientFrameEdges" Value="None"/>
+        <Setter Property="WindowChrome.ResizeBorderThickness" Value="5"/>
+        <Setter Property="WindowStyle" Value="None"/>
+        <Setter Property="AllowsTransparency" Value="False"/>
+        <Setter Property="ResizeMode" Value="NoResize"/>
+        <Setter Property="Background" Value="#7799bd"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Width" Value="660"/>
+        <Setter Property="Height" Value="495"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ctrl:NcoreWindow}">
+                    <ControlTemplate.Resources>
+                        <Style TargetType="{x:Type Grid}" x:Key="IN.TITLEBAR">
+                            <Setter Property="DockPanel.Dock" Value="Top"/>
+                            <Setter Property="Background" Value="{StaticResource LGB.BAR}"/>
+                        </Style>
+                        <Style TargetType="{x:Type TextBlock}" x:Key="IN.TITLE">
+                            <Setter Property="Text" Value="iCommander 2021"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="Margin" Value="0 0 0 0"/>
+                            <Setter Property="Foreground" Value="#FFFFFF"/>
+                            <Setter Property="FontSize" Value="11.5"/>
+                        </Style>
+                        <Style TargetType="{x:Type StackPanel}" x:Key="IN.LEFT">
+                            <Setter Property="Orientation" Value="Horizontal"/>
+                            <Setter Property="HorizontalAlignment" Value="Left"/>
+                        </Style>
+                        <Style TargetType="{x:Type StackPanel}" x:Key="IN.RIGHT">
+                            <Setter Property="Orientation" Value="Horizontal"/>
+                            <Setter Property="HorizontalAlignment" Value="Right"/>
+                            <Setter Property="VerticalAlignment" Value="Top"/>
+                        </Style>
+                    </ControlTemplate.Resources>
+                    <DockPanel Margin="0" Background="#ffffff">
+                        <Grid x:Name="PART_TaskBar" Style="{StaticResource IN.TITLEBAR}">
+                            <StackPanel Style="{StaticResource IN.LEFT}">
+                                <ctrl:NcoreIcon Style="{StaticResource ICON.TITLE}"/>
+                                <TextBlock Style="{StaticResource IN.TITLE}"/>
+                            </StackPanel>
+                            <StackPanel Style="{StaticResource IN.RIGHT}">
+                                <Button Style="{StaticResource IN.MINIMIZE}"/>
+                                <Button Style="{StaticResource IN.MAXIMIZE}"/>
+                                <Button Style="{StaticResource IN.CLOSE}"/>
+                            </StackPanel>
+                        </Grid>
+
+                        <Border BorderBrush="#999999" BorderThickness="1" DockPanel.Dock="Bottom">
+                            <Grid>
+                                <ContentPresenter/>
+                                <Thumb x:Name="PART_Resize" Style="{StaticResource IN.THUMB}"/>
+                            </Grid>
+                        </Border>
+                    </DockPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
+    
+    
+    
+    
+    
+    
