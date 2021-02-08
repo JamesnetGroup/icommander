@@ -19,3 +19,4 @@ C:\ncoresoft\icommander\Commander.Resources\bin\Debug\Commander.WindowsBase.pdb
 C:\ncoresoft\icommander\Commander.Resources\bin\Debug\Commander.Converter.dll
 C:\ncoresoft\icommander\Commander.Resources\bin\Debug\Commander.Converter.pdb
 C:\ncoresoft\icommander\Commander.Resources\obj\Debug\Design\ConverterResource.baml
+C:\ncoresoft\icommander\Commander.Resources\obj\Debug\Design\ScrollViewerResource.baml

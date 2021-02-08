@@ -4,12 +4,11 @@
                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
                 xmlns:ctrl="clr-namespace:Commander.Windows.Controls;assembly=Commander.Control"
-                mc:Ignorable="d" Style="{StaticResource UC.EXP}"
-                d:DesignHeight="300" d:DesignWidth="600">
+                mc:Ignorable="d" Style="{StaticResource UC.EXP}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
-            <RowDefinition/>
+            <RowDefinition MinHeight="200"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
@@ -37,40 +36,43 @@
             <Button Grid.Column="8" Content="Close Tab" ToolTip="Close Tab" x:Name="btnCloseTab" Style="{DynamicResource BTN.EXP.ICON}" Tag="CLOSE"/>
         </Grid>
 
-        <ListView Grid.Row="1" ItemsSource="{Binding FileDatas}" SelectionMode="Extended" x:Name="lv"
-                  PreviewKeyDown="lv_PreviewKeyDown" 
-                  Tag="{Binding IsHiddenVisibility}">
-            <ListView.Resources>
-                <Style TargetType="ListViewItem">
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding FileType}" Value="HiddenDirectory">
-                            <Setter Property="ListBoxItem.Visibility" Value="{Binding Path=Tag, Converter={StaticResource BooleanToVisibilityConverter}, RelativeSource={RelativeSource AncestorType=ListView}}" />
-                        </DataTrigger>
-                        <DataTrigger Binding="{Binding FileType}" Value="Hidden">
-                            <Setter Property="ListBoxItem.Visibility" Value="{Binding Path=Tag, Converter={StaticResource BooleanToVisibilityConverter}, RelativeSource={RelativeSource AncestorType=ListView}}" />
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </ListView.Resources>
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="File Name">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal" x:Name="stk">
-                                    <Grid Width="16" Height="16" Margin="3 0 3 0" >
-                                        <Image Source="{Binding IconSource}" Margin="0" Stretch="Uniform" x:Name="imgFile" SnapsToDevicePixels="True" UseLayoutRounding="True"
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <ListView ItemsSource="{Binding FileDatas}" SelectionMode="Extended" x:Name="lv2" Visibility="Collapsed"
+                  PreviewKeyDown="lv_PreviewKeyDown" Tag="{Binding IsHiddenVisibility}" VerticalAlignment="Stretch">
+                <ListView.Resources>
+                    <Style TargetType="ListViewItem">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding FileType}" Value="HiddenDirectory">
+                                <Setter Property="ListBoxItem.Visibility" Value="{Binding Path=Tag, Converter={StaticResource BooleanToVisibilityConverter}, RelativeSource={RelativeSource AncestorType=ListView}}" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding FileType}" Value="Hidden">
+                                <Setter Property="ListBoxItem.Visibility" Value="{Binding Path=Tag, Converter={StaticResource BooleanToVisibilityConverter}, RelativeSource={RelativeSource AncestorType=ListView}}" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListView.Resources>
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="File Name">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" x:Name="stk">
+                                        <Grid Width="16" Height="16" Margin="3 0 3 0" >
+                                            <Image Source="{Binding IconSource}" Margin="0" Stretch="Uniform" x:Name="imgFile" SnapsToDevicePixels="True" UseLayoutRounding="True"
                                                 HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                                    </Grid>
-                                    <Grid>
-                                        <TextBlock Text="{Binding FileName}" VerticalAlignment="Center" x:Name="filename" Foreground="#333333"/>
-                                        <ctrl:EditTextBox Text="{Binding FileName}" VerticalAlignment="Center" x:Name="txtfilename" Foreground="#333333"
+                                        </Grid>
+                                        <Grid>
+                                            <TextBlock Text="{Binding FileName}" VerticalAlignment="Center" x:Name="filename" Foreground="#333333"/>
+                                            <ctrl:EditTextBox Text="{Binding FileName}" VerticalAlignment="Center" x:Name="txtfilename" Foreground="#333333"
                                               Title="{Binding IsEditMode}"/>
-                                    </Grid>
-                                </StackPanel>
-                                <DataTemplate.Triggers>
+                                        </Grid>
+                                    </StackPanel>
+                                    <DataTemplate.Triggers>
 
-                                    <!--<DataTrigger Binding="{Binding Extension}" Value=".avi">
+                                        <!--<DataTrigger Binding="{Binding Extension}" Value=".avi">
                                         <Setter TargetName="imgExt" Property="Source" Value="/Images/avi.png"/>
                                     </DataTrigger>
                                     <DataTrigger Binding="{Binding Extension}" Value=".png">
@@ -88,46 +90,48 @@
                                     <DataTrigger Binding="{Binding FileType}" Value="Hidden">
                                         <Setter TargetName="imgExt" Property="Visibility" Value="Collapsed"/>
                                     </DataTrigger>-->
-                                    <DataTrigger Binding="{Binding FileType}" Value="Directory">
-                                    </DataTrigger>
-                                    <DataTrigger Binding="{Binding FileType}" Value="HiddenDirectory">
-                                        <Setter TargetName="imgFile" Property="Opacity" Value="0.5"/>
-                                        <Setter TargetName="filename" Property="Foreground" Value="#bbbbbb"/>
-                                    </DataTrigger>
-                                </DataTemplate.Triggers>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                    <!--<GridViewColumn Header="Ext." DisplayMemberBinding="{Binding Extension}" Width="60" />-->
-                    <!--<GridViewColumn Header="Full Name" DisplayMemberBinding="{Binding FullName}"/>-->
-                    <GridViewColumn Header="Created">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <StackPanel>
-                                    <TextBlock x:Name="filename" Text="{Binding LastWriteTime}" Foreground="#888888"/>
-                                </StackPanel>
-                                <DataTemplate.Triggers>
-                                    <DataTrigger Binding="{Binding FileType}" Value="HiddenDirectory">
-                                        <Setter TargetName="filename" Property="Foreground" Value="#bbbbbb"/>
-                                    </DataTrigger>
-                                </DataTemplate.Triggers>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                    <GridViewColumn Header="Size">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <StackPanel Width="80">
-                                    <TextBlock Text="{Binding FileSize, Converter={StaticResource FileSizeConverter}}" TextAlignment="Right" HorizontalAlignment="Right"
+                                        <DataTrigger Binding="{Binding FileType}" Value="Directory">
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding FileType}" Value="HiddenDirectory">
+                                            <Setter TargetName="imgFile" Property="Opacity" Value="0.5"/>
+                                            <Setter TargetName="filename" Property="Foreground" Value="#bbbbbb"/>
+                                        </DataTrigger>
+                                    </DataTemplate.Triggers>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <!--<GridViewColumn Header="Ext." DisplayMemberBinding="{Binding Extension}" Width="60" />-->
+                        <!--<GridViewColumn Header="Full Name" DisplayMemberBinding="{Binding FullName}"/>-->
+                        <GridViewColumn Header="Created">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <TextBlock x:Name="filename" Text="{Binding LastWriteTime}" Foreground="#888888"/>
+                                    </StackPanel>
+                                    <DataTemplate.Triggers>
+                                        <DataTrigger Binding="{Binding FileType}" Value="HiddenDirectory">
+                                            <Setter TargetName="filename" Property="Foreground" Value="#bbbbbb"/>
+                                        </DataTrigger>
+                                    </DataTemplate.Triggers>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Size">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Width="80">
+                                        <TextBlock Text="{Binding FileSize, Converter={StaticResource FileSizeConverter}}" TextAlignment="Right" HorizontalAlignment="Right"
                                                 Foreground="#888888"/>
-                                </StackPanel>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                    <!--<GridViewColumn Header="Modified" DisplayMemberBinding="{Binding LastAccessTime}"/>-->
-                </GridView>
-            </ListView.View>
-        </ListView>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <!--<GridViewColumn Header="Modified" DisplayMemberBinding="{Binding LastAccessTime}"/>-->
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <ListBox x:Name="lv" Grid.Column="1" Style="{StaticResource LBX.EXP}"/>
+        </Grid>
         <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="3 0 3 0">
             <TextBlock Text="{Binding ElementName=lv, Path=Items.Count, StringFormat=' {0}개 항목'}"
                        Foreground="#888888" Margin="-4 3 3 3" FontSize="10.5"/>

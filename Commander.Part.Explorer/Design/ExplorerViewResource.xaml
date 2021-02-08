@@ -164,4 +164,87 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style TargetType="{x:Type ListBoxItem}" x:Key="LBXI.EXP">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                    <ControlTemplate.Resources>
+                        <Style TargetType="{x:Type Border}" x:Key="IN.BORDER">
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="Height" Value="24"/>
+                        </Style>
+                    </ControlTemplate.Resources>
+                    <Border x:Name="border" Style="{StaticResource IN.BORDER}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition SharedSizeGroup="A" Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition SharedSizeGroup="C" Width="Auto"/>
+                                <ColumnDefinition SharedSizeGroup="D" Width="80"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="{Binding IconSource}" Stretch="Uniform" x:Name="imgFile" Width="16" Height="16"
+                                   SnapsToDevicePixels="True" UseLayoutRounding="True" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 0 0"/>
+                            <TextBlock Grid.Column="1" Text="{Binding FileName}" VerticalAlignment="Center" Foreground="#FFFFFF" Margin="6 0 6 0"/>
+                            <TextBlock Grid.Column="2" Text="{Binding LastAccessTime}" Margin="6 0 6 0" Foreground="#CCCCCC" VerticalAlignment="Center" FontFamily="Malgungodic"/>
+                            <TextBlock Grid.Column="3" Text="{Binding FileSize, Converter={StaticResource FileSizeConverter}}" TextAlignment="Right" HorizontalAlignment="Right"
+                                       Foreground="#CCCCCC" Margin="6 0 10 0"/>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="#2f53a5"/>
+                        </Trigger>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="#3256a7"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type ListBox}" x:Key="LBX.EXP">
+        <Setter Property="ItemsSource" Value="{Binding FileDatas}"/>
+        <Setter Property="ItemContainerStyle" Value="{StaticResource LBXI.EXP}"/>
+        <Setter Property="SelectionMode" Value="Extended"/>
+        <Setter Property="Background" Value="#292929"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Foreground" Value="#FFFFFF"/>
+        <Setter Property="Grid.IsSharedSizeScope" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ListBox}">
+                    <ControlTemplate.Resources>
+                        <Style TargetType="{x:Type Label}" x:Key="IN.HEADER">
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            <Setter Property="VerticalContentAlignment" Value="Center"/>
+                            <Setter Property="BorderThickness" Value="0 1 1 1"/>
+                            <Setter Property="BorderBrush" Value="#191919"/>
+                            <Setter Property="Foreground" Value="#CCCCCC"/>
+                            <Setter Property="Padding" Value="0"/>
+                            <Setter Property="Height" Value="24"/>
+                        </Style>
+                    </ControlTemplate.Resources>
+                    <DockPanel>
+                        <Grid DockPanel.Dock="Top">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition SharedSizeGroup="A" Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition SharedSizeGroup="C" Width="Auto"/>
+                                <ColumnDefinition SharedSizeGroup="D" Width="80"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Style="{StaticResource IN.HEADER}" Content=".."/>
+                            <Label Grid.Column="1" Style="{StaticResource IN.HEADER}" Content="Name"/>
+                            <Label Grid.Column="2" Style="{StaticResource IN.HEADER}" Content="Created"/>
+                            <Label Grid.Column="3" Style="{StaticResource IN.HEADER}" Content="Size" BorderThickness="0 1 0 1"/>
+                        </Grid>
+                        <ScrollViewer DockPanel.Dock="Bottom">
+                            <ItemsPresenter/>
+                        </ScrollViewer>
+                    </DockPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>

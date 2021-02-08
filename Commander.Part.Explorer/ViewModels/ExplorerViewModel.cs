@@ -154,8 +154,8 @@ namespace Commander.Part.Explorer.ViewModels
 
         private void Lv_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
         {
-            var lv = sender as ListView;
-            var sitem = ItemsControl.ContainerFromElement(sender as ListView, e.OriginalSource as DependencyObject) as ListViewItem;
+            var lv = sender as ListBoxItem;
+            var sitem = ItemsControl.ContainerFromElement(sender as ListView, e.OriginalSource as DependencyObject) as ListBoxItem;
 
             if (sitem == null)
                 return;
