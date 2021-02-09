@@ -11,6 +11,16 @@
         <GradientStop Color="#323232" Offset="0.0" />
         <GradientStop Color="#363636" Offset="1.0" />
     </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="LGB.LBX.DOWN" StartPoint="0.5, 0" EndPoint="0.5, 1">
+        <GradientStop Color="#00222222" Offset="0.0" />
+        <GradientStop Color="#222222" Offset="1.0" />
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="LGB.LBX.BOTTOM" StartPoint="0.5, 0" EndPoint="0.5, 1">
+        <GradientStop Color="#191919" Offset="0.0" />
+        <GradientStop Color="#191919" Offset="1.0" />
+    </LinearGradientBrush>
     
     <Style TargetType="{x:Type ctrl:NcoreView}" x:Key="UC.EXP">
         <Setter Property="Margin" Value="0"/>
@@ -152,7 +162,7 @@
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="border" Property="Background" Value="{StaticResource LGB.TEXTBOX.OVER}"/>
                             <Setter TargetName="border" Property="BorderBrush" Value="#191919"/>
-                            <Setter Property="Foreground" Value="#FFFFFF"/>
+                            <Setter Property="Foreground" Value="#BBBBBB"/>
                         </Trigger>
                         <Trigger Property="IsKeyboardFocused" Value="True">
                             <Setter TargetName="border" Property="Background" Value="{StaticResource LGB.TEXTBOX.OVER}"/>
@@ -216,11 +226,18 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ListBox}">
                     <ControlTemplate.Resources>
+                        <Style TargetType="{x:Type Border}" x:Key="IN.DOWN">
+                            <Setter Property="Background" Value="{StaticResource LGB.LBX.DOWN}"/>
+                            <Setter Property="IsHitTestVisible" Value="False"/>
+                            <Setter Property="VerticalAlignment" Value="Bottom"/>
+                            <Setter Property="Height" Value="60"/>
+                        </Style>
                         <Style TargetType="{x:Type Label}" x:Key="IN.HEADER">
                             <Setter Property="HorizontalContentAlignment" Value="Center"/>
                             <Setter Property="VerticalContentAlignment" Value="Center"/>
                             <Setter Property="BorderThickness" Value="0 1 1 1"/>
                             <Setter Property="BorderBrush" Value="#191919"/>
+                            <Setter Property="Background" Value="#202020"/>
                             <Setter Property="Foreground" Value="#CCCCCC"/>
                             <Setter Property="Padding" Value="0"/>
                             <Setter Property="Height" Value="24"/>
@@ -234,14 +251,17 @@
                                 <ColumnDefinition SharedSizeGroup="C" Width="Auto"/>
                                 <ColumnDefinition SharedSizeGroup="D" Width="80"/>
                             </Grid.ColumnDefinitions>
-                            <Label Grid.Column="0" Style="{StaticResource IN.HEADER}" Content=".."/>
+                            <Label Grid.Column="0" Style="{StaticResource IN.HEADER}" Content=""/>
                             <Label Grid.Column="1" Style="{StaticResource IN.HEADER}" Content="Name"/>
                             <Label Grid.Column="2" Style="{StaticResource IN.HEADER}" Content="Created"/>
                             <Label Grid.Column="3" Style="{StaticResource IN.HEADER}" Content="Size" BorderThickness="0 1 0 1"/>
                         </Grid>
-                        <ScrollViewer DockPanel.Dock="Bottom">
-                            <ItemsPresenter/>
-                        </ScrollViewer>
+                        <Grid DockPanel.Dock="Bottom">
+                            <ScrollViewer>
+                                <ItemsPresenter/>
+                            </ScrollViewer>
+                            <Border Style="{StaticResource IN.DOWN}"/>
+                        </Grid>
                     </DockPanel>
                 </ControlTemplate>
             </Setter.Value>

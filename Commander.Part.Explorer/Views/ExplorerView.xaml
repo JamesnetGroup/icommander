@@ -132,17 +132,15 @@
             </ListView>
             <ListBox x:Name="lv" Grid.Column="1" Style="{StaticResource LBX.EXP}"/>
         </Grid>
-        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="3 0 3 0">
-            <TextBlock Text="{Binding ElementName=lv, Path=Items.Count, StringFormat=' {0}개 항목'}"
-                       Foreground="#888888" Margin="-4 3 3 3" FontSize="10.5"/>
-            <TextBlock Text="{Binding ElementName=lv, Path=SelectedItems.Count, StringFormat=' {0}개 항목 선택함'}"
-                       Foreground="#888888" Margin="3 3 3 3" FontSize="10.5"/>
-            <TextBlock Text="{Binding ElementName=lv, Path=SelectedItem.FileName, StringFormat=' {0}'}"
-                       Foreground="#333333" Margin="3 3 3 3" FontSize="10.5"/>
-            <!--<TextBlock Text="{Binding Path=MousePosition.X, StringFormat='X: {0}', TargetNullValue=''}"
-                       Foreground="#333333" Margin="3 3 3 3" FontSize="10.5"/>
-            <TextBlock Text="{Binding Path=MousePosition.Y, StringFormat='Y: {0}', TargetNullValue=''}"
-                       Foreground="#333333" Margin="3 3 3 3" FontSize="10.5"/>-->
-        </StackPanel>
+        <Border Grid.Row="2" Margin="0" Padding="8 3 8 3" Background="{StaticResource LGB.LBX.BOTTOM}">
+            <StackPanel Grid.Row="2" Orientation="Horizontal">
+                <TextBlock Text="{Binding ElementName=lv, Path=Items.Count, StringFormat=' {0}개 항목'}"
+                       Foreground="#DDDDDD" Margin="-4 3 3 3" FontSize="10.5"/>
+                <TextBlock Text="{Binding ElementName=lv, Path=SelectedItems.Count, StringFormat=' {0}개 항목 선택함'}"
+                       Foreground="#DDDDDD" Margin="3 3 3 3" FontSize="10.5"/>
+                <TextBlock Text="{Binding ElementName=lv, Path=SelectedItem.FileName, StringFormat=' {0}'}"
+                       Foreground="#FFFFFF" Margin="3 3 3 3" FontSize="10.5"/>
+            </StackPanel>
+        </Border>
     </Grid>
 </ctrl:NcoreView>
