@@ -14,15 +14,25 @@ namespace Commander.Windows.Controls.Primitives
     {
         #region DependencyProperty
 
-        public static readonly DependencyProperty CommandProperty = DependencyProperty.Register("Command", typeof(ICommand), typeof(ExplorerListBox));
+        public static readonly DependencyProperty DoubleClickCommandProperty = DependencyProperty.Register("DoubleClickCommand", typeof(ICommand), typeof(ExplorerListBox));
+        public static readonly DependencyProperty PreviewKeyDownCommandProperty = DependencyProperty.Register("PreviewKeyDownCommand", typeof(ICommand), typeof(ExplorerListBox));
         #endregion
 
-        #region Command
+        #region DoubleClickCommand
 
-        public ICommand Command
+        public ICommand DoubleClickCommand
         {
-            get { return (ICommand)this.GetValue(CommandProperty); }
-            set { this.SetValue(CommandProperty, value); }
+            get { return (ICommand)this.GetValue(DoubleClickCommandProperty); }
+            set { this.SetValue(DoubleClickCommandProperty, value); }
+        }
+        #endregion
+
+        #region PreviewKeyDownCommand
+
+        public ICommand PreviewKeyDownCommand
+        {
+            get { return (ICommand)this.GetValue(PreviewKeyDownCommandProperty); }
+            set { this.SetValue(PreviewKeyDownCommandProperty, value); }
         }
         #endregion
 
@@ -44,6 +54,29 @@ namespace Commander.Windows.Controls.Primitives
                 files.AddRange(from FileData file in this.SelectedItems select new FileInfo(file.FullName));
                 ctx.ShowContextMenu(files.ToArray(), MousePosition.GetMousePosition(this));
             }
+        }
+        #endregion
+
+        #region OnMouseDoubleClick
+
+        protected override void OnMouseDoubleClick(MouseButtonEventArgs e)
+        {
+            base.OnMouseDoubleClick(e);
+
+            if (e.OriginalSource is FrameworkElement fe && fe.DataContext is FileData data)
+            {
+                DoubleClickCommand?.Execute(data);
+
+            }
+        }
+        #endregion
+
+        #region OnPreviewKeyDown
+
+        protected override void OnPreviewKeyDown(KeyEventArgs e)
+        {
+            base.OnPreviewKeyDown(e);
+            PreviewKeyDownCommand?.Execute(e);
         }
         #endregion
     }

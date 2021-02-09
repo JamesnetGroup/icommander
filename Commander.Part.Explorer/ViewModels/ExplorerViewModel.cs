@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Threading;
@@ -17,7 +18,6 @@ namespace Commander.Part.Explorer.ViewModels
         #region Variables
 
         internal bool IsExplorerUpdated;
-        private readonly ExplorerView view;
         private Stack<FileData> UndoList;
         private Stack<FileData> RedoList;
         private ExplorerWatcher FileWatcher;
@@ -33,6 +33,8 @@ namespace Commander.Part.Explorer.ViewModels
         public ICommand CloseCommand { get; set; }
         public ICommand CopyCommand { get; set; }
         public ICommand NewCommand { get; set; }
+        public ICommand ChooseCommand { get; set; }
+        public ICommand KeyDownCommand { get; set; }
         #endregion
 
         #region IsMoveUpEnabled
@@ -88,11 +90,7 @@ namespace Commander.Part.Explorer.ViewModels
         public FileData FileData
         {
             get { return _fileData; }
-            set
-            {
-                _fileData = value; base.OnPropertyChanged();
-                view.FileClick.Invoke(this.view, FileData);
-            }
+            set { _fileData = value; base.OnPropertyChanged(); }
         }
         #endregion
 
@@ -106,22 +104,10 @@ namespace Commander.Part.Explorer.ViewModels
         }
         #endregion
 
-        #region MousePosition
-
-        private System.Drawing.Point _mousePosition;
-        public System.Drawing.Point MousePosition
-        {
-            get { return _mousePosition; }
-            set { _mousePosition = value; base.OnPropertyChanged("MousePosition"); }
-        }
-        #endregion
-
         #region Constructor
 
-        public ExplorerViewModel(ExplorerView _view)
+        public ExplorerViewModel()
         {
-            this.view = _view;
-
             PromptCommand = new RelayCommand<object>(PromptClick);
             MoveCommand = new RelayCommand<object>(MoveClick);
             UndoCommand = new RelayCommand<object>(UndoClick);
@@ -129,6 +115,8 @@ namespace Commander.Part.Explorer.ViewModels
             NewCommand = new RelayCommand<object>(NewClick);
             CopyCommand = new RelayCommand<object>(CopyClick);
             CloseCommand = new RelayCommand<object>(CloseClick);
+            ChooseCommand = new RelayCommand<FileData>(DoubleClick);
+            KeyDownCommand = new RelayCommand<KeyEventArgs>(InputKeys);
         }
         #endregion
 
@@ -139,16 +127,13 @@ namespace Commander.Part.Explorer.ViewModels
             string path = @"C:\ncoresoft";
             UndoList = new Stack<FileData>();
             RedoList = new Stack<FileData>();
-            RefreshFolder(path);
-
-            view.lv.MouseDoubleClick += Lv_MouseDoubleClick;
-            view.lv.MouseRightButtonUp += Lv_MouseRightButtonUp;
+            Refresh(path);
 
             FileData = new FileData { FullName = path };
             Current = FileData;
             UndoList.Push(FileData);
             RedoList.Clear();
-            SetUndoRedoStatus();
+            SetButtons();
 
             InitFileAsync();
         }
@@ -181,7 +166,7 @@ namespace Commander.Part.Explorer.ViewModels
                 RedoList.Clear();
                 UndoList.Push(FileData);
                 FileDatas = FileDirectory.GetCurrentData(FileData.FullName, true);
-                SetUndoRedoStatus();
+                SetButtons();
             }
         }
         #endregion
@@ -196,7 +181,7 @@ namespace Commander.Part.Explorer.ViewModels
             UndoList.Push(FileData);
 
             FileDatas = FileDirectory.GetCurrentData(FileData.FullName, true);
-            SetUndoRedoStatus();
+            SetButtons();
         }
         #endregion
 
@@ -207,7 +192,7 @@ namespace Commander.Part.Explorer.ViewModels
             FileData = RedoList.Pop();
             UndoList.Push(FileData);
             FileDatas = FileDirectory.GetCurrentData(FileData.FullName, true);
-            SetUndoRedoStatus();
+            SetButtons();
         }
         #endregion
 
@@ -222,7 +207,7 @@ namespace Commander.Part.Explorer.ViewModels
 
         private void CopyClick(object obj)
         {
-            view.NewTabItemClick.Invoke(this.view);
+            //view.NewTabItemClick.Invoke(this.view);
         }
         #endregion
 
@@ -230,23 +215,65 @@ namespace Commander.Part.Explorer.ViewModels
 
         private void CloseClick(object obj)
         {
-            view.TabItemClosed.Invoke(obj);
+            //view.TabItemClosed.Invoke(obj);
             Window.GetWindow(View).Close();
         }
         #endregion
 
-        internal void Enter()
-        {
-            Lv_MouseDoubleClick(null, null);
-        }
+        #region DoubleClick
 
-        internal void EEscapesc()
+        private void DoubleClick(FileData item)
         {
-            if (view.btnUndo.IsEnabled == true)
-                UndoClick(null);
-            else if (view.btnRedo.IsEnabled == true)
-                RedoClick(null);
+            Current = item;
+            if (Current.FileType == FileTypes.Directory || Current.FileType == FileTypes.Parent
+                || Current.FileType == FileTypes.HiddenDirectory)
+            {
+                var newData = FileDirectory.GetCurrentData(Current.FullName, true);
+                if (newData.Count == 0 && FileDirectory.IsError == true)
+                {
+                    MessageBox.Show(FileDirectory.ErrorMessage);
+                    return;
+                }
+                FileDatas = newData;
+                UndoList.Push(Current);
+                RedoList.Clear();
+                SetButtons();
+            }
+            else if (Current.FileType == FileTypes.File)
+            {
+                Process.Start(Current.FullName);
+            }
         }
+        #endregion
+
+        #region InputKey
+
+        private void InputKeys(KeyEventArgs e)
+        {
+            switch (e.Key)
+            {
+                case Key.F2: break;
+                case Key.F5: break;
+                case Key.Enter: DoubleClick(FileData); break;
+                case Key.Back: GoBack(); break;
+            }
+        }
+        #endregion
+
+        #region GoBack
+
+        private void GoBack()
+        {
+            if (IsUndoEnabled)
+            {
+                UndoClick(null);
+            }
+            else if (IsRedoEnabled)
+            {
+                RedoClick(null);
+            }
+        }
+        #endregion
 
         public void InitFileAsync()
         {
@@ -254,78 +281,35 @@ namespace Commander.Part.Explorer.ViewModels
 
             RefreshWorker = new ExplorerRefreshWorker(this);
             Thread thread = new Thread(RefreshWorker.DoWork);
-            thread.Start();
+            thread.Start(); 
 
             FileWatcher = new ExplorerWatcher(this);
             FileWatcher.Run();
         }
 
-        internal void RefreshFolder()
-        {
-            RefreshFolder(FileData.FullName);
-        }
+        #region Refresh
 
-        internal void RefreshFolder(string path)
-        {
-            view.Dispatcher.Invoke(() => { FileDatas = FileDirectory.GetCurrentData(path, true); });
-        }
+        internal void Refresh() => Refresh(Current.FullName);
 
-        private void Lv_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            
-        }
+        internal void Refresh(string path) => View.Dispatcher.Invoke(() => FileDatas = FileDirectory.GetCurrentData(path, true));
+        #endregion
 
-        private void Lv_PreviewMouseMove(object sender, MouseEventArgs e)
-        {
-            Point p = Mouse.GetPosition(App.Current.MainWindow);
-            MousePosition = new System.Drawing.Point((int)p.X, (int)p.Y);
-        }
+        #region SetButtons
 
-
-        private void SetUndoRedoStatus()
+        private void SetButtons()
         {
             IsUndoEnabled = UndoList.Count != 1;
             IsRedoEnabled = RedoList.Count != 0;
 
             var parent = Directory.GetParent(Current.FullName);
 
-            if (parent == null)
-            {
-                IsMoveUpEnabled = false;
-            }
-            else
-            {
-                IsMoveUpEnabled = true;
-            }
+            IsMoveUpEnabled = parent != null;
 
             if (FileWatcher != null)
-                FileWatcher.ChangeWatchPath(Current.FullName);
-        }
-
-        private void Lv_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            if (FileData != null)
             {
-                Current = FileData;
-                if (Current.FileType == FileTypes.Directory || Current.FileType == FileTypes.Parent
-                    || Current.FileType == FileTypes.HiddenDirectory)
-                {
-                    var newData = FileDirectory.GetCurrentData(Current.FullName, true);
-                    if (newData.Count == 0 && FileDirectory.IsError == true)
-                    {
-                        MessageBox.Show(FileDirectory.ErrorMessage);
-                        return;
-                    }
-                    FileDatas = newData;
-                    UndoList.Push(Current);
-                    RedoList.Clear();
-                    SetUndoRedoStatus();
-                }
-                else if (Current.FileType == FileTypes.File)
-                {
-                    Process.Start(Current.FullName);
-                }
+                FileWatcher.ChangeWatchPath(Current.FullName);
             }
         }
+        #endregion
     }
 }

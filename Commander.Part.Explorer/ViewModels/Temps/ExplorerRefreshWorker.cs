@@ -21,7 +21,7 @@ namespace Commander.Part.Explorer.ViewModels.Temps
             {
                 if (explorer.IsExplorerUpdated)
                 {
-                    explorer.RefreshFolder();
+                    explorer.Refresh();
                     explorer.IsExplorerUpdated = false;
                 }
 

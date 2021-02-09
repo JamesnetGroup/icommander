@@ -6,44 +6,5 @@
                 xmlns:ctrl="clr-namespace:Commander.Windows.Controls;assembly=Commander.Control"
                 xmlns:prim="clr-namespace:Commander.Windows.Controls.Primitives;assembly=Commander.LayoutSupport"
                 mc:Ignorable="d" Style="{StaticResource UC.EXP}">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition MinHeight="200"/>
-            <RowDefinition Height="auto"/>
-        </Grid.RowDefinitions>
-
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Content="Move" ToolTip="Undo" Margin="0" x:Name="btnMoveUp" IsEnabled="{Binding IsMoveUpEnabled}" Style="{DynamicResource BTN.EXP.ICON}" Tag="MOVEUP"
-                    Command="{Binding MoveCommand}"/>
-            <Button Grid.Column="1" Content="Undo" ToolTip="Undo" Margin="0" x:Name="btnUndo" IsEnabled="{Binding IsUndoEnabled}" Style="{DynamicResource BTN.EXP.ICON}" Tag="UNDO"
-                    Command="{Binding UndoCommand}"/>
-            <Button Grid.Column="2" Content="Redo" ToolTip="Redo" Margin="0" x:Name="btnRedo" IsEnabled="{Binding IsRedoEnabled}" Style="{DynamicResource BTN.EXP.ICON}" Tag="REDO"
-                    Command="{Binding RedoCommand}"/>
-            <TextBox Grid.Column="3" Style="{StaticResource TXT.EXP.PATH}"/>
-
-            <ToggleButton Grid.Column="4" Content="Hidden Visible" Style="{DynamicResource IN.HIDDEN}" ToolTip="Show All Files" Padding="4" IsChecked="{Binding IsHiddenVisibility, Mode=TwoWay}"/>
-            <Button Grid.Column="5" Content="Open CMD" ToolTip="Command Prompt" x:Name="btnCMD" Style="{DynamicResource BTN.EXP.ICON}" Tag="CMD"
-                    Command="{Binding PromptCommand}"/>
-            <Button Grid.Column="6" Content="New Folder" ToolTip="New Folder" x:Name="btnNewFolder" Style="{DynamicResource BTN.EXP.ICON}" Tag="CREATEFOLDER"
-                    Command="{Binding NewCommand}"/>
-            <Button Grid.Column="7" Content="Copy Tab" ToolTip="Copy Tab" x:Name="btnCopyTab" Style="{DynamicResource BTN.EXP.ICON}" Tag="NEWFOLDER"
-                    Command="{Binding CopyCommand}"/>
-            <Button Grid.Column="8" Content="Close Tab" ToolTip="Close Tab" x:Name="btnCloseTab" Style="{DynamicResource BTN.EXP.ICON}" Tag="CLOSE"
-                    Command="{Binding CloseCommand}"/>
-        </Grid>
-
-        <prim:ExplorerListBox x:Name="lv" Style="{StaticResource LBX.EXP}"/>
-    </Grid>
+        <prim:ExplorerListBox Style="{StaticResource LBX.EXP}"/>
 </ctrl:NcoreView>

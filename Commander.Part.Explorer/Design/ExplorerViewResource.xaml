@@ -23,11 +23,6 @@
         <GradientStop Color="#191919" Offset="1.0" />
     </LinearGradientBrush>
     
-    <Style TargetType="{x:Type ctrl:NcoreView}" x:Key="UC.EXP">
-        <Setter Property="Margin" Value="0"/>
-        <Setter Property="Background" Value="#252525"/>
-    </Style>
-    
     <Style TargetType="{x:Type ctrl:NcoreIcon}" x:Key="ICON.BUTTON" BasedOn="{StaticResource ICON}">
         <Setter Property="Fill" Value="#DDDDDD"/>
         <Setter Property="Margin" Value="10"/>
@@ -43,7 +38,7 @@
         <Setter Property="Height" Value="15"/>
     </Style>
 
-    <Style TargetType="{x:Type Button}" x:Key="BTN.EXP.ICON">
+    <Style TargetType="{x:Type Button}" x:Key="IN.ICON">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
@@ -133,7 +128,7 @@
         </Setter>
     </Style>
 
-    <Style TargetType="{x:Type TextBox}" x:Key="TXT.EXP.PATH">
+    <Style TargetType="{x:Type TextBox}" x:Key="IN.LOCATION">
         <Setter Property="Text" Value="{Binding Current.FullName}"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="Foreground" Value="#999999"/>
@@ -176,40 +171,40 @@
         </Setter>
     </Style>
 
-    <Style TargetType="{x:Type ListBoxItem}" x:Key="LBXI.EXP">
+    <Style TargetType="{x:Type Control}" x:Key="IN.FUNCTION">
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type ListBoxItem}">
-                    <ControlTemplate.Resources>
-                        <Style TargetType="{x:Type Border}" x:Key="IN.BORDER">
-                            <Setter Property="Background" Value="Transparent"/>
-                            <Setter Property="Height" Value="24"/>
-                        </Style>
-                    </ControlTemplate.Resources>
-                    <Border x:Name="border" Style="{StaticResource IN.BORDER}">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition SharedSizeGroup="A" Width="Auto"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition SharedSizeGroup="C" Width="Auto"/>
-                                <ColumnDefinition SharedSizeGroup="D" Width="80"/>
-                            </Grid.ColumnDefinitions>
-                            <Image Grid.Column="0" Source="{Binding IconSource}" Stretch="Uniform" x:Name="imgFile" Width="16" Height="16"
-                                   SnapsToDevicePixels="True" UseLayoutRounding="True" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 0 0"/>
-                            <TextBlock Grid.Column="1" Text="{Binding FileName}" VerticalAlignment="Center" Foreground="#FFFFFF" Margin="6 0 6 0"/>
-                            <TextBlock Grid.Column="2" Text="{Binding LastAccessTime}" Margin="6 0 6 0" Foreground="#CCCCCC" VerticalAlignment="Center"/>
-                            <TextBlock Grid.Column="3" Text="{Binding FileSize, Converter={StaticResource FileSizeConverter}}" TextAlignment="Right" HorizontalAlignment="Right"
-                                       Foreground="#CCCCCC" Margin="6 0 10 0" VerticalAlignment="Center"/>
-                        </Grid>
-                    </Border>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="border" Property="Background" Value="#2f53a5"/>
-                        </Trigger>
-                        <Trigger Property="IsSelected" Value="True">
-                            <Setter TargetName="border" Property="Background" Value="#3256a7"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
+                <ControlTemplate TargetType="{x:Type Control}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="0" Content="Move" ToolTip="Undo" Margin="0" x:Name="btnMoveUp" IsEnabled="{Binding IsMoveUpEnabled}" Style="{DynamicResource IN.ICON}" Tag="MOVEUP"
+                                Command="{Binding MoveCommand}"/>
+                        <Button Grid.Column="1" Content="Undo" ToolTip="Undo" Margin="0" x:Name="btnUndo" IsEnabled="{Binding IsUndoEnabled}" Style="{DynamicResource IN.ICON}" Tag="UNDO"
+                                Command="{Binding UndoCommand}"/>
+                        <Button Grid.Column="2" Content="Redo" ToolTip="Redo" Margin="0" x:Name="btnRedo" IsEnabled="{Binding IsRedoEnabled}" Style="{DynamicResource IN.ICON}" Tag="REDO"
+                                Command="{Binding RedoCommand}"/>
+                        <TextBox Grid.Column="3" Style="{StaticResource IN.LOCATION}"/>
+
+                        <ToggleButton Grid.Column="4" Content="Hidden Visible" Style="{DynamicResource IN.HIDDEN}" ToolTip="Show All Files" Padding="4" IsChecked="{Binding IsHiddenVisibility, Mode=TwoWay}"/>
+                        <Button Grid.Column="5" Content="Open CMD" ToolTip="Command Prompt" x:Name="btnCMD" Style="{DynamicResource IN.ICON}" Tag="CMD"
+                                Command="{Binding PromptCommand}"/>
+                        <Button Grid.Column="6" Content="New Folder" ToolTip="New Folder" x:Name="btnNewFolder" Style="{DynamicResource IN.ICON}" Tag="CREATEFOLDER"
+                                Command="{Binding NewCommand}"/>
+                        <Button Grid.Column="7" Content="Copy Tab" ToolTip="Copy Tab" x:Name="btnCopyTab" Style="{DynamicResource IN.ICON}" Tag="NEWFOLDER"
+                                Command="{Binding CopyCommand}"/>
+                        <Button Grid.Column="8" Content="Close Tab" ToolTip="Close Tab" x:Name="btnCloseTab" Style="{DynamicResource IN.ICON}" Tag="CLOSE"
+                                Command="{Binding CloseCommand}"/>
+                    </Grid>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -291,8 +286,48 @@
         </Setter>
     </Style>
 
+    <Style TargetType="{x:Type ListBoxItem}" x:Key="LBXI.EXP">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                    <ControlTemplate.Resources>
+                        <Style TargetType="{x:Type Border}" x:Key="IN.BORDER">
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="Height" Value="24"/>
+                        </Style>
+                    </ControlTemplate.Resources>
+                    <Border x:Name="border" Style="{StaticResource IN.BORDER}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition SharedSizeGroup="A" Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition SharedSizeGroup="C" Width="Auto"/>
+                                <ColumnDefinition SharedSizeGroup="D" Width="80"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="{Binding IconSource}" Stretch="Uniform" x:Name="imgFile" Width="16" Height="16"
+                                   SnapsToDevicePixels="True" UseLayoutRounding="True" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 0 0"/>
+                            <TextBlock Grid.Column="1" Text="{Binding FileName}" VerticalAlignment="Center" Foreground="#FFFFFF" Margin="6 0 6 0"/>
+                            <TextBlock Grid.Column="2" Text="{Binding LastAccessTime}" Margin="6 0 6 0" Foreground="#CCCCCC" VerticalAlignment="Center"/>
+                            <TextBlock Grid.Column="3" Text="{Binding FileSize, Converter={StaticResource FileSizeConverter}}" TextAlignment="Right" HorizontalAlignment="Right"
+                                       Foreground="#CCCCCC" Margin="6 0 10 0" VerticalAlignment="Center"/>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="#2f53a5"/>
+                        </Trigger>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="#3256a7"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <Style TargetType="{x:Type prim:ExplorerListBox}" x:Key="LBX.EXP">
         <Setter Property="Grid.Row" Value="1"/>
+        <Setter Property="DoubleClickCommand" Value="{Binding ChooseCommand}"/>
         <Setter Property="ItemContainerStyle" Value="{StaticResource LBXI.EXP}"/>
         <Setter Property="ItemsSource" Value="{Binding FileDatas}"/>
         <Setter Property="SelectedItem" Value="{Binding FileData}"/>
@@ -319,6 +354,7 @@
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
+                        <Control Style="{StaticResource IN.FUNCTION}"/>
                         <Control Style="{StaticResource IN.HEADER}"/>
                         <Grid Grid.Row="2">
                             <ScrollViewer>
@@ -331,5 +367,10 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+    </Style>
+    
+    <Style TargetType="{x:Type ctrl:NcoreView}" x:Key="UC.EXP">
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="Background" Value="#252525"/>
     </Style>
 </ResourceDictionary>
