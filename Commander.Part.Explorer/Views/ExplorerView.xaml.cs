@@ -1,37 +1,32 @@
 ﻿using System;
-using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
+using Commander.Data.File;
 using Commander.Part.Explorer.ViewModels;
-using Commander.Part.Explorer.ViewModels.Temps;
 using Commander.Windows.Controls;
 
 namespace Commander.Part.Explorer.Views
 {
     public partial class ExplorerView : NcoreView
     {
-        ExplorerViewModel vm;
-        public Action<object, RoutedEventArgs> NewTabItemClick = (s, e) => { };
-        public Action<object, RoutedEventArgs> TabItemClosed = (s, e) => { };
+        readonly ExplorerViewModel vm;
+        public Action<object> NewTabItemClick = (s) => { };
+        public Action<object> TabItemClosed = (s) => { };
         public Action<object, FileData> FileClick = (s, e) => { };
 
         public FileData CurrentFile
         {
-            get { return vm.CurrentFile; }
+            get { return vm.FileData; }
         }
 
         public ExplorerView()
         {
             InitializeComponent();
 
-            string path = @"C:\ncoresoft";
             vm = new ExplorerViewModel(this);
-            vm.InitViewModel(path);
-            vm.InitFileAsync();
             DataContext = vm;
         }
 
-        private void lv_PreviewKeyDown(object sender, KeyEventArgs e)
+        private void Lv_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             //if (e.Key == Key.F2)
             //{

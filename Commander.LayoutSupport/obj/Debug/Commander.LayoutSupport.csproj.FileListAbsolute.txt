@@ -1,0 +1,17 @@
+C:\ncoresoft\icommander\Commander.LayoutSupport\bin\Debug\Commander.LayoutSupport.dll.config
+C:\ncoresoft\icommander\Commander.LayoutSupport\bin\Debug\Commander.LayoutSupport.dll
+C:\ncoresoft\icommander\Commander.LayoutSupport\bin\Debug\Commander.LayoutSupport.pdb
+C:\ncoresoft\icommander\Commander.LayoutSupport\obj\Debug\Commander.LayoutSupport.Properties.Resources.resources
+C:\ncoresoft\icommander\Commander.LayoutSupport\obj\Debug\Commander.LayoutSupport.csproj.GenerateResource.cache
+C:\ncoresoft\icommander\Commander.LayoutSupport\obj\Debug\Commander.LayoutSupport.csproj.CoreCompileInputs.cache
+C:\ncoresoft\icommander\Commander.LayoutSupport\obj\Debug\Commander.LayoutSupport.dll
+C:\ncoresoft\icommander\Commander.LayoutSupport\obj\Debug\Commander.LayoutSupport.pdb
+C:\ncoresoft\icommander\Commander.LayoutSupport\bin\Debug\Commander.Data.dll
+C:\ncoresoft\icommander\Commander.LayoutSupport\bin\Debug\Commander.WindowsReference.dll
+C:\ncoresoft\icommander\Commander.LayoutSupport\bin\Debug\Commander.Data.pdb
+C:\ncoresoft\icommander\Commander.LayoutSupport\bin\Debug\Commander.WindowsReference.pdb
+C:\ncoresoft\icommander\Commander.LayoutSupport\bin\Debug\Commander.WindowsReference.dll.config
+C:\ncoresoft\icommander\Commander.LayoutSupport\obj\Debug\Commander.LayoutSupport.csprojAssemblyReference.cache
+C:\ncoresoft\icommander\Commander.LayoutSupport\obj\Debug\Commander.LayoutSupport.csproj.CopyComplete
+C:\ncoresoft\icommander\Commander.LayoutSupport\bin\Debug\Commander.WindowsBase.dll
+C:\ncoresoft\icommander\Commander.LayoutSupport\bin\Debug\Commander.WindowsBase.pdb

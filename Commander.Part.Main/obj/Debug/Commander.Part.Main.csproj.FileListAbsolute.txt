@@ -29,3 +29,8 @@ C:\ncoresoft\icommander\Commander.Part.Main\bin\Debug\Commander.WindowsBase.pdb
 C:\ncoresoft\icommander\Commander.Part.Main\bin\Debug\Commander.WindowsReference.dll
 C:\ncoresoft\icommander\Commander.Part.Main\bin\Debug\Commander.WindowsReference.pdb
 C:\ncoresoft\icommander\Commander.Part.Main\bin\Debug\Commander.WindowsReference.dll.config
+C:\ncoresoft\icommander\Commander.Part.Main\bin\Debug\Commander.LayoutSupport.dll
+C:\ncoresoft\icommander\Commander.Part.Main\bin\Debug\Commander.LayoutSupport.pdb
+C:\ncoresoft\icommander\Commander.Part.Main\bin\Debug\Commander.LayoutSupport.dll.config
+C:\ncoresoft\icommander\Commander.Part.Main\bin\Debug\Commander.Data.dll
+C:\ncoresoft\icommander\Commander.Part.Main\bin\Debug\Commander.Data.pdb

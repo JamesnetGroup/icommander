@@ -11,7 +11,7 @@ namespace Commander.Part.Explorer.ViewModels.Temps
 {
     public class ExplorerWatcher
     {
-        private ExplorerViewModel explorer;
+        private readonly ExplorerViewModel explorer;
         private FileSystemWatcher watcher;
 
         public ExplorerWatcher(ExplorerViewModel _vm)
@@ -28,12 +28,14 @@ namespace Commander.Part.Explorer.ViewModels.Temps
         internal void Run()
         {
             // Create a new FileSystemWatcher and set its properties.
-            watcher = new FileSystemWatcher();
-            watcher.Path = explorer.CurrentFile.FullName;
-            /* Watch for changes in LastAccess and LastWrite times, and
-               the renaming of files or directories. */
-            watcher.NotifyFilter = NotifyFilters.LastAccess | NotifyFilters.LastWrite
-               | NotifyFilters.FileName | NotifyFilters.DirectoryName;
+            watcher = new FileSystemWatcher
+            {
+                Path = explorer.FileData.FullName,
+                /* Watch for changes in LastAccess and LastWrite times, and
+                   the renaming of files or directories. */
+                NotifyFilter = NotifyFilters.LastAccess | NotifyFilters.LastWrite
+               | NotifyFilters.FileName | NotifyFilters.DirectoryName
+            };
             // Only watch text files.
             //watcher.Filter = "*.txt";
 

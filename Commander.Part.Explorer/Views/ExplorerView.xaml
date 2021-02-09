@@ -4,6 +4,7 @@
                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
                 xmlns:ctrl="clr-namespace:Commander.Windows.Controls;assembly=Commander.Control"
+                xmlns:prim="clr-namespace:Commander.Windows.Controls.Primitives;assembly=Commander.LayoutSupport"
                 mc:Ignorable="d" Style="{StaticResource UC.EXP}">
     <Grid>
         <Grid.RowDefinitions>
@@ -24,123 +25,25 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Content="Undo" ToolTip="Undo" Margin="0" x:Name="btnMoveUp" IsEnabled="{Binding IsMoveUpEnabled}" Style="{DynamicResource BTN.EXP.ICON}" Tag="MOVEUP"/>
-            <Button Grid.Column="1" Content="Undo" ToolTip="Undo" Margin="0" x:Name="btnUndo" IsEnabled="{Binding IsUndoEnabled}" Style="{DynamicResource BTN.EXP.ICON}" Tag="UNDO"/>
-            <Button Grid.Column="2" Content="Redo" ToolTip="Redo" Margin="0" x:Name="btnRedo" IsEnabled="{Binding IsRedoEnabled}" Style="{DynamicResource BTN.EXP.ICON}" Tag="REDO"/>
+            <Button Grid.Column="0" Content="Move" ToolTip="Undo" Margin="0" x:Name="btnMoveUp" IsEnabled="{Binding IsMoveUpEnabled}" Style="{DynamicResource BTN.EXP.ICON}" Tag="MOVEUP"
+                    Command="{Binding MoveCommand}"/>
+            <Button Grid.Column="1" Content="Undo" ToolTip="Undo" Margin="0" x:Name="btnUndo" IsEnabled="{Binding IsUndoEnabled}" Style="{DynamicResource BTN.EXP.ICON}" Tag="UNDO"
+                    Command="{Binding UndoCommand}"/>
+            <Button Grid.Column="2" Content="Redo" ToolTip="Redo" Margin="0" x:Name="btnRedo" IsEnabled="{Binding IsRedoEnabled}" Style="{DynamicResource BTN.EXP.ICON}" Tag="REDO"
+                    Command="{Binding RedoCommand}"/>
             <TextBox Grid.Column="3" Style="{StaticResource TXT.EXP.PATH}"/>
 
             <ToggleButton Grid.Column="4" Content="Hidden Visible" Style="{DynamicResource IN.HIDDEN}" ToolTip="Show All Files" Padding="4" IsChecked="{Binding IsHiddenVisibility, Mode=TwoWay}"/>
-            <Button Grid.Column="5" Content="Open CMD" ToolTip="Command Prompt" x:Name="btnCMD" Style="{DynamicResource BTN.EXP.ICON}" Tag="CMD"/>
-            <Button Grid.Column="6" Content="New Folder" ToolTip="New Folder" x:Name="btnNewFolder" Style="{DynamicResource BTN.EXP.ICON}" Tag="CREATEFOLDER"/>
-            <Button Grid.Column="7" Content="Copy Tab" ToolTip="Copy Tab" x:Name="btnCopyTab" Style="{DynamicResource BTN.EXP.ICON}" Tag="NEWFOLDER"/>
-            <Button Grid.Column="8" Content="Close Tab" ToolTip="Close Tab" x:Name="btnCloseTab" Style="{DynamicResource BTN.EXP.ICON}" Tag="CLOSE"/>
+            <Button Grid.Column="5" Content="Open CMD" ToolTip="Command Prompt" x:Name="btnCMD" Style="{DynamicResource BTN.EXP.ICON}" Tag="CMD"
+                    Command="{Binding PromptCommand}"/>
+            <Button Grid.Column="6" Content="New Folder" ToolTip="New Folder" x:Name="btnNewFolder" Style="{DynamicResource BTN.EXP.ICON}" Tag="CREATEFOLDER"
+                    Command="{Binding NewCommand}"/>
+            <Button Grid.Column="7" Content="Copy Tab" ToolTip="Copy Tab" x:Name="btnCopyTab" Style="{DynamicResource BTN.EXP.ICON}" Tag="NEWFOLDER"
+                    Command="{Binding CopyCommand}"/>
+            <Button Grid.Column="8" Content="Close Tab" ToolTip="Close Tab" x:Name="btnCloseTab" Style="{DynamicResource BTN.EXP.ICON}" Tag="CLOSE"
+                    Command="{Binding CloseCommand}"/>
         </Grid>
 
-        <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <ListView ItemsSource="{Binding FileDatas}" SelectionMode="Extended" x:Name="lv2" Visibility="Collapsed"
-                  PreviewKeyDown="lv_PreviewKeyDown" Tag="{Binding IsHiddenVisibility}" VerticalAlignment="Stretch">
-                <ListView.Resources>
-                    <Style TargetType="ListViewItem">
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding FileType}" Value="HiddenDirectory">
-                                <Setter Property="ListBoxItem.Visibility" Value="{Binding Path=Tag, Converter={StaticResource BooleanToVisibilityConverter}, RelativeSource={RelativeSource AncestorType=ListView}}" />
-                            </DataTrigger>
-                            <DataTrigger Binding="{Binding FileType}" Value="Hidden">
-                                <Setter Property="ListBoxItem.Visibility" Value="{Binding Path=Tag, Converter={StaticResource BooleanToVisibilityConverter}, RelativeSource={RelativeSource AncestorType=ListView}}" />
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </ListView.Resources>
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Header="File Name">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <StackPanel Orientation="Horizontal" x:Name="stk">
-                                        <Grid Width="16" Height="16" Margin="3 0 3 0" >
-                                            <Image Source="{Binding IconSource}" Margin="0" Stretch="Uniform" x:Name="imgFile" SnapsToDevicePixels="True" UseLayoutRounding="True"
-                                                HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                                        </Grid>
-                                        <Grid>
-                                            <TextBlock Text="{Binding FileName}" VerticalAlignment="Center" x:Name="filename" Foreground="#333333"/>
-                                            <ctrl:EditTextBox Text="{Binding FileName}" VerticalAlignment="Center" x:Name="txtfilename" Foreground="#333333"
-                                              Title="{Binding IsEditMode}"/>
-                                        </Grid>
-                                    </StackPanel>
-                                    <DataTemplate.Triggers>
-
-                                        <!--<DataTrigger Binding="{Binding Extension}" Value=".avi">
-                                        <Setter TargetName="imgExt" Property="Source" Value="/Images/avi.png"/>
-                                    </DataTrigger>
-                                    <DataTrigger Binding="{Binding Extension}" Value=".png">
-                                        <Setter TargetName="imgExt" Property="Source" Value="/Images/png.png"/>
-                                    </DataTrigger>
-                                    <DataTrigger Binding="{Binding Extension}" Value=".exe">
-                                        <Setter TargetName="imgExt" Property="Source" Value="/Images/exe.png"/>
-                                    </DataTrigger>
-                                    <DataTrigger Binding="{Binding FileType}" Value="Directory">
-                                        <Setter TargetName="imgExt" Property="Source" Value="/Images/folder.png"/>
-                                    </DataTrigger>
-                                    <DataTrigger Binding="{Binding FileType}" Value="Parent">
-                                        <Setter TargetName="imgExt" Property="Visibility" Value="Collapsed"/>
-                                    </DataTrigger>
-                                    <DataTrigger Binding="{Binding FileType}" Value="Hidden">
-                                        <Setter TargetName="imgExt" Property="Visibility" Value="Collapsed"/>
-                                    </DataTrigger>-->
-                                        <DataTrigger Binding="{Binding FileType}" Value="Directory">
-                                        </DataTrigger>
-                                        <DataTrigger Binding="{Binding FileType}" Value="HiddenDirectory">
-                                            <Setter TargetName="imgFile" Property="Opacity" Value="0.5"/>
-                                            <Setter TargetName="filename" Property="Foreground" Value="#bbbbbb"/>
-                                        </DataTrigger>
-                                    </DataTemplate.Triggers>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                        <!--<GridViewColumn Header="Ext." DisplayMemberBinding="{Binding Extension}" Width="60" />-->
-                        <!--<GridViewColumn Header="Full Name" DisplayMemberBinding="{Binding FullName}"/>-->
-                        <GridViewColumn Header="Created">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <StackPanel>
-                                        <TextBlock x:Name="filename" Text="{Binding LastWriteTime}" Foreground="#888888"/>
-                                    </StackPanel>
-                                    <DataTemplate.Triggers>
-                                        <DataTrigger Binding="{Binding FileType}" Value="HiddenDirectory">
-                                            <Setter TargetName="filename" Property="Foreground" Value="#bbbbbb"/>
-                                        </DataTrigger>
-                                    </DataTemplate.Triggers>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                        <GridViewColumn Header="Size">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <StackPanel Width="80">
-                                        <TextBlock Text="{Binding FileSize, Converter={StaticResource FileSizeConverter}}" TextAlignment="Right" HorizontalAlignment="Right"
-                                                Foreground="#888888"/>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                        <!--<GridViewColumn Header="Modified" DisplayMemberBinding="{Binding LastAccessTime}"/>-->
-                    </GridView>
-                </ListView.View>
-            </ListView>
-            <ListBox x:Name="lv" Grid.Column="1" Style="{StaticResource LBX.EXP}"/>
-        </Grid>
-        <Border Grid.Row="2" Margin="0" Padding="8 3 8 3" Background="{StaticResource LGB.LBX.BOTTOM}">
-            <StackPanel Grid.Row="2" Orientation="Horizontal">
-                <TextBlock Text="{Binding ElementName=lv, Path=Items.Count, StringFormat=' {0}개 항목'}"
-                       Foreground="#DDDDDD" Margin="-4 3 3 3" FontSize="10.5"/>
-                <TextBlock Text="{Binding ElementName=lv, Path=SelectedItems.Count, StringFormat=' {0}개 항목 선택함'}"
-                       Foreground="#DDDDDD" Margin="3 3 3 3" FontSize="10.5"/>
-                <TextBlock Text="{Binding ElementName=lv, Path=SelectedItem.FileName, StringFormat=' {0}'}"
-                       Foreground="#FFFFFF" Margin="3 3 3 3" FontSize="10.5"/>
-            </StackPanel>
-        </Border>
+        <prim:ExplorerListBox x:Name="lv" Style="{StaticResource LBX.EXP}"/>
     </Grid>
 </ctrl:NcoreView>

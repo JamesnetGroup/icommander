@@ -1,7 +1,6 @@
-﻿
-using System.IO;
+﻿using System.IO;
 
-namespace Commander.Part.Explorer.ViewModels.Temps
+namespace Commander.Data.File
 {
     public class FileData
     {
@@ -10,19 +9,21 @@ namespace Commander.Part.Explorer.ViewModels.Temps
         public long? FileSize { get; set; }
         public FileTypes FileType { get; set; }
         public string FullName { get; set; }
-        public System.Windows.Media.ImageSource IconSource { get; set; }
+        public object IconSource { get; set; }
         public bool IsEditMode { get; set; }
-        public bool IsReadOnly { get { return IsEditMode == true ? false : true; } }
+        public bool IsReadOnly { get { return IsEditMode != true; } }
         public string LastAccessTime { get; set; }
         public string LastWriteTime { get; set; }
 
         public static FileData ParentDir(DirectoryInfo dir)
         {
-            var parent = new FileData();
-            parent.FileType = FileTypes.Parent;
-            parent.FileName = "..";
-            parent.FullName = dir.FullName;
-            parent.FileSize = null;
+            var parent = new FileData
+            {
+                FileType = FileTypes.Parent,
+                FileName = "..",
+                FullName = dir.FullName,
+                FileSize = null
+            };
             return parent;
         }
     }

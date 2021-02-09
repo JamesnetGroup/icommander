@@ -28,3 +28,8 @@ C:\ncoresoft\icommander\Commander.Part.Explorer\bin\Debug\Commander.Resources.pd
 C:\ncoresoft\icommander\Commander.Part.Explorer\bin\Debug\Commander.Resources.dll.config
 C:\ncoresoft\icommander\Commander.Part.Explorer\bin\Debug\Commander.WindowsReference.pdb
 C:\ncoresoft\icommander\Commander.Part.Explorer\bin\Debug\Commander.WindowsReference.dll.config
+C:\ncoresoft\icommander\Commander.Part.Explorer\bin\Debug\Commander.LayoutSupport.dll
+C:\ncoresoft\icommander\Commander.Part.Explorer\bin\Debug\Commander.LayoutSupport.pdb
+C:\ncoresoft\icommander\Commander.Part.Explorer\bin\Debug\Commander.LayoutSupport.dll.config
+C:\ncoresoft\icommander\Commander.Part.Explorer\bin\Debug\Commander.Data.dll
+C:\ncoresoft\icommander\Commander.Part.Explorer\bin\Debug\Commander.Data.pdb

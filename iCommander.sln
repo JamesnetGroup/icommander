@@ -35,6 +35,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Commander.Converter", "Comm
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Commander.WindowsReference", "Commander.WindowsReference\Commander.WindowsReference.csproj", "{56407049-CD0D-45C4-AC1A-F3510AD7B41F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Commander.LayoutSupport", "Commander.LayoutSupport\Commander.LayoutSupport.csproj", "{A9292575-2ABF-491D-91BF-E40DDE66FF92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Commander.Data", "Commander.Data\Commander.Data.csproj", "{9D186C9C-483A-4DB4-8931-19A54051F54E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,6 +77,14 @@ Global
 		{56407049-CD0D-45C4-AC1A-F3510AD7B41F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56407049-CD0D-45C4-AC1A-F3510AD7B41F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56407049-CD0D-45C4-AC1A-F3510AD7B41F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9292575-2ABF-491D-91BF-E40DDE66FF92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9292575-2ABF-491D-91BF-E40DDE66FF92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9292575-2ABF-491D-91BF-E40DDE66FF92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9292575-2ABF-491D-91BF-E40DDE66FF92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D186C9C-483A-4DB4-8931-19A54051F54E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D186C9C-483A-4DB4-8931-19A54051F54E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D186C9C-483A-4DB4-8931-19A54051F54E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D186C9C-483A-4DB4-8931-19A54051F54E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -88,6 +100,8 @@ Global
 		{D88245AA-7E03-4FE5-AB79-73CD3F7E5072} = {9782513A-30CD-4DAC-AC19-FFB23083A295}
 		{AC92EDD6-460E-479C-BEA7-5437685C16A6} = {9AC2F518-E568-4D69-A039-3B09318A669F}
 		{56407049-CD0D-45C4-AC1A-F3510AD7B41F} = {9782513A-30CD-4DAC-AC19-FFB23083A295}
+		{A9292575-2ABF-491D-91BF-E40DDE66FF92} = {21B108F8-1D1E-49AC-9562-E7DB38EA711B}
+		{9D186C9C-483A-4DB4-8931-19A54051F54E} = {9782513A-30CD-4DAC-AC19-FFB23083A295}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D5EBBD28-118A-4CB8-B616-DC25DE12B6F4}

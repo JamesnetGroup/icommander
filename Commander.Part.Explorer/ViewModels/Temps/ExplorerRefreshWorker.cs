@@ -7,8 +7,7 @@ namespace Commander.Part.Explorer.ViewModels.Temps
     public class ExplorerRefreshWorker
     {
         private volatile bool _shouldStop;
-        static readonly object locked = new object();
-        ExplorerViewModel explorer;
+        readonly ExplorerViewModel explorer;
 
         public ExplorerRefreshWorker(ExplorerViewModel _vm)
         {

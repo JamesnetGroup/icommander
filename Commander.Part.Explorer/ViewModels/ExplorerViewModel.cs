@@ -1,64 +1,239 @@
-﻿using Commander.OperationSystem.Screen;
-using Commander.Part.Explorer.ViewModels.Temps;
-using Commander.Part.Explorer.Views;
-using Commander.Windows.Mvvm;
-using Commander.WindowsReference.OperationSystem.Windows;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Threading;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
+using Commander.Data.File;
+using Commander.Part.Explorer.ViewModels.Temps;
+using Commander.Part.Explorer.Views;
+using Commander.Windows.Mvvm;
+
 
 namespace Commander.Part.Explorer.ViewModels
 {
     public partial class ExplorerViewModel : ObservableObject
     {
-        internal ExplorerView view;
+        #region Variables
 
-        Stack<FileData> UndoList { get; set; }
-        Stack<FileData> RedoList { get; set; }
+        internal bool IsExplorerUpdated;
+        private readonly ExplorerView view;
+        private Stack<FileData> UndoList;
+        private Stack<FileData> RedoList;
+        private ExplorerWatcher FileWatcher;
+        private ExplorerRefreshWorker RefreshWorker;
+        #endregion
 
-        bool _IsMoveUpEnabled;
+        #region ICommand
+
+        public ICommand MoveCommand { get; set; }
+        public ICommand UndoCommand { get; set; }
+        public ICommand RedoCommand { get; set; }
+        public ICommand PromptCommand { get; set; }
+        public ICommand CloseCommand { get; set; }
+        public ICommand CopyCommand { get; set; }
+        public ICommand NewCommand { get; set; }
+        #endregion
+
+        #region IsMoveUpEnabled
+
+        private bool _isMoveUpEnabled;
         public bool IsMoveUpEnabled
         {
-            get { return _IsMoveUpEnabled; }
-            set { _IsMoveUpEnabled = value; base.OnPropertyChanged("IsMoveUpEnabled"); }
+            get { return _isMoveUpEnabled; }
+            set { _isMoveUpEnabled = value; base.OnPropertyChanged(); }
         }
+        #endregion
 
-        bool _IsUndoEnabled;
+        #region IsUndoEnabled
+
+        private bool _isUndoEnabled;
         public bool IsUndoEnabled
         {
-            get { return _IsUndoEnabled; }
-            set { _IsUndoEnabled = value; base.OnPropertyChanged("IsUndoEnabled"); }
+            get { return _isUndoEnabled; }
+            set { _isUndoEnabled = value; base.OnPropertyChanged(); }
         }
+        #endregion
 
-        bool _IsRedoEnabled;
+        #region IsRedoEnabled
+
+        private bool _isRedoEnabled;
         public bool IsRedoEnabled
         {
-            get { return _IsRedoEnabled; }
-            set { _IsRedoEnabled = value; base.OnPropertyChanged("IsRedoEnabled"); }
+            get { return _isRedoEnabled; }
+            set { _isRedoEnabled = value; base.OnPropertyChanged(); }
         }
+        #endregion
 
-        bool _IsHiddenVisibility;
+        #region IsHiddenVIsibility
+
+        private bool _isHiddenVisibility;
         public bool IsHiddenVisibility
         {
-            get { return _IsHiddenVisibility; }
-            set { _IsHiddenVisibility = value; base.OnPropertyChanged("IsHiddenVisibility"); }
+            get { return _isHiddenVisibility; }
+            set { _isHiddenVisibility = value; base.OnPropertyChanged(); }
         }
+        #endregion
+
+        #region FileDatas
+
+        private List<FileData> _fileDatas;
+        public List<FileData> FileDatas
+        {
+            get { return _fileDatas; }
+            set { _fileDatas = value; base.OnPropertyChanged(); }
+        }
+
+        private FileData _fileData;
+        public FileData FileData
+        {
+            get { return _fileData; }
+            set
+            {
+                _fileData = value; base.OnPropertyChanged();
+                view.FileClick.Invoke(this.view, FileData);
+            }
+        }
+        #endregion
+
+        #region Current
+
+        private FileData _current;
+        public FileData Current
+        {
+            get { return _current; }
+            set { _current = value; OnPropertyChanged(); }
+        }
+        #endregion
+
+        #region MousePosition
+
+        private System.Drawing.Point _mousePosition;
+        public System.Drawing.Point MousePosition
+        {
+            get { return _mousePosition; }
+            set { _mousePosition = value; base.OnPropertyChanged("MousePosition"); }
+        }
+        #endregion
+
+        #region Constructor
 
         public ExplorerViewModel(ExplorerView _view)
         {
             this.view = _view;
-        }
 
-        List<FileData> _FileDatas;
-        public List<FileData> FileDatas
-        {
-            get { return _FileDatas; }
-            set { _FileDatas = value; base.OnPropertyChanged("FileDatas"); }
+            PromptCommand = new RelayCommand<object>(PromptClick);
+            MoveCommand = new RelayCommand<object>(MoveClick);
+            UndoCommand = new RelayCommand<object>(UndoClick);
+            RedoCommand = new RelayCommand<object>(RedoClick);
+            NewCommand = new RelayCommand<object>(NewClick);
+            CopyCommand = new RelayCommand<object>(CopyClick);
+            CloseCommand = new RelayCommand<object>(CloseClick);
         }
+        #endregion
+
+        #region OnViewLoaded
+
+        protected override void OnViewLoaded()
+        {
+            string path = @"C:\ncoresoft";
+            UndoList = new Stack<FileData>();
+            RedoList = new Stack<FileData>();
+            RefreshFolder(path);
+
+            view.lv.MouseDoubleClick += Lv_MouseDoubleClick;
+            view.lv.MouseRightButtonUp += Lv_MouseRightButtonUp;
+
+            FileData = new FileData { FullName = path };
+            Current = FileData;
+            UndoList.Push(FileData);
+            RedoList.Clear();
+            SetUndoRedoStatus();
+
+            InitFileAsync();
+        }
+        #endregion
+
+        #region PromptClick
+
+        private void PromptClick(object obj)
+        {
+            ProcessStartInfo info = new ProcessStartInfo("cmd")
+            {
+                WorkingDirectory = FileData.FullName
+            };
+            Process proc = new Process
+            {
+                StartInfo = info
+            };
+            proc.Start();
+        }
+        #endregion
+
+        #region MoveClick
+
+        private void MoveClick(object obj)
+        {
+            var parent = Directory.GetParent(FileData.FullName);
+            if (parent != null)
+            {
+                FileData = new FileData { FullName = parent.FullName };
+                RedoList.Clear();
+                UndoList.Push(FileData);
+                FileDatas = FileDirectory.GetCurrentData(FileData.FullName, true);
+                SetUndoRedoStatus();
+            }
+        }
+        #endregion
+
+        #region UndoClick
+
+        private void UndoClick(object obj)
+        {
+            var popUndo = UndoList.Pop();
+            RedoList.Push(popUndo);
+            FileData = UndoList.Pop();
+            UndoList.Push(FileData);
+
+            FileDatas = FileDirectory.GetCurrentData(FileData.FullName, true);
+            SetUndoRedoStatus();
+        }
+        #endregion
+
+        #region RedoClick
+
+        private void RedoClick(object obj)
+        {
+            FileData = RedoList.Pop();
+            UndoList.Push(FileData);
+            FileDatas = FileDirectory.GetCurrentData(FileData.FullName, true);
+            SetUndoRedoStatus();
+        }
+        #endregion
+
+        #region NewClick
+
+        private void NewClick(object obj)
+        {
+        }
+        #endregion
+
+        #region CopyClick
+
+        private void CopyClick(object obj)
+        {
+            view.NewTabItemClick.Invoke(this.view);
+        }
+        #endregion
+
+        #region CloseClick
+
+        private void CloseClick(object obj)
+        {
+            view.TabItemClosed.Invoke(obj);
+            Window.GetWindow(View).Close();
+        }
+        #endregion
 
         internal void Enter()
         {
@@ -68,34 +243,10 @@ namespace Commander.Part.Explorer.ViewModels
         internal void EEscapesc()
         {
             if (view.btnUndo.IsEnabled == true)
-                BtnUndo_Click(null, null);
+                UndoClick(null);
             else if (view.btnRedo.IsEnabled == true)
-                BtnRedo_Click(null, null);
+                RedoClick(null);
         }
-
-        System.Drawing.Point _MousePosition;
-        public System.Drawing.Point MousePosition
-        {
-            get { return _MousePosition; }
-            set { _MousePosition = value; base.OnPropertyChanged("MousePosition"); }
-        }
-
-
-        FileData _CurrentFile;
-        public FileData CurrentFile
-        {
-            get { return _CurrentFile; }
-            set
-            {
-                _CurrentFile = value; base.OnPropertyChanged("CurrentFile");
-                view.FileClick.Invoke(this.view, CurrentFile);
-            }
-        }
-
-        ExplorerWatcher FileWatcher;
-        ExplorerRefreshWorker RefreshWorker;
-
-        internal bool IsExplorerUpdated;
 
         public void InitFileAsync()
         {
@@ -109,76 +260,19 @@ namespace Commander.Part.Explorer.ViewModels
             FileWatcher.Run();
         }
 
-        internal void InitViewModel(string path = @":\")
-        {
-            UndoList = new Stack<FileData>();
-            RedoList = new Stack<FileData>();
-
-            //get folder refresh.
-            RefreshFolder(path, true);
-
-            view.lv.MouseDoubleClick += Lv_MouseDoubleClick;
-            view.lv.PreviewMouseMove += Lv_MouseMove;
-            view.lv.MouseRightButtonUp += Lv_MouseRightButtonUp;
-            view.lv.MouseRightButtonDown += Lv_MouseRightButtonDown;
-            view.btnUndo.Click += BtnUndo_Click;
-            view.btnRedo.Click += BtnRedo_Click;
-            view.btnMoveUp.Click += BtnMoveUp_Click;
-            view.btnCMD.Click += BtnCMD_Click;
-            view.btnCopyTab.Click += BtnCopyTab_Click;
-            view.btnCloseTab.Click += BtnCloseTab_Click;
-            view.btnNewFolder.Click += BtnNewFolder_Click;
-
-            CurrentFile = new FileData { FullName = path };
-            UndoList.Push(CurrentFile);
-            RedoList.Clear();
-            ExplorerChanged(this, CurrentFile);
-            SetUndoRedoStatus();
-        }
-
-        private void BtnNewFolder_Click(object sender, RoutedEventArgs e)
-        {
-            //var newFolder = new NewDirectory();
-            //newFolder.ShowDialog(this);
-        }
-
         internal void RefreshFolder()
         {
-            RefreshFolder(CurrentFile.FullName, true);
+            RefreshFolder(FileData.FullName);
         }
 
-        internal void RefreshFolder(string path, bool v)
+        internal void RefreshFolder(string path)
         {
             view.Dispatcher.Invoke(() => { FileDatas = FileDirectory.GetCurrentData(path, true); });
         }
 
         private void Lv_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
         {
-            var lv = sender as ListBoxItem;
-            var sitem = ItemsControl.ContainerFromElement(sender as ListView, e.OriginalSource as DependencyObject) as ListBoxItem;
-
-            if (sitem == null)
-                return;
-
-            System.Drawing.Point pp = MousePoint.GetMousePosition(view);
-
-            ShellContextMenu ctxMnu = new ShellContextMenu();
-            FileInfo[] arrFI = new FileInfo[this.view.lv.SelectedItems.Count];
-
-            int i = 0;
-            foreach (FileData file in this.view.lv.SelectedItems)
-            {
-                arrFI[i] = new FileInfo(file.FullName);
-                i++;
-            }
-            if (arrFI.Length == 0)
-                arrFI[0] = new FileInfo(CurrentFile.FullName);
-
-            ctxMnu.ShowContextMenu(arrFI, pp);
-        }
-
-        private void Lv_MouseMove(object sender, MouseEventArgs e)
-        {
+            
         }
 
         private void Lv_PreviewMouseMove(object sender, MouseEventArgs e)
@@ -188,88 +282,12 @@ namespace Commander.Part.Explorer.ViewModels
         }
 
 
-
-        private void Lv_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void SetUndoRedoStatus()
         {
+            IsUndoEnabled = UndoList.Count != 1;
+            IsRedoEnabled = RedoList.Count != 0;
 
-
-
-            //System.Windows.Point p = e.GetPosition(lv);
-            //double pixelWidth = lv.Width;
-            //double pixelHeight = lv.Height;
-            //double x = pixelWidth * p.X / lv.ActualWidth;
-            //double y = pixelHeight * p.Y / lv.ActualHeight;
-            //MessageBox.Show(x + ", " + y);
-        }
-
-        private void BtnCloseTab_Click(object sender, RoutedEventArgs e)
-        {
-            view.TabItemClosed.Invoke(view, e);
-            //if (MessageBox.Show("Really?", "Notice", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
-            //{
-            //    view.TabItemClosed.Invoke(view, e);
-            //}
-
-        }
-
-        private void ExplorerChanged(ExplorerViewModel myExplorerViewModel, FileData currentFile)
-        {
-            //
-        }
-
-        private void BtnCopyTab_Click(object sender, RoutedEventArgs e)
-        {
-            view.NewTabItemClick.Invoke(this.view, e);
-        }
-
-        private void BtnCMD_Click(object sender, RoutedEventArgs e)
-        {
-            ProcessStartInfo info = new ProcessStartInfo("cmd");
-            info.WorkingDirectory = CurrentFile.FullName;
-            Process proc = new Process();
-            proc.StartInfo = info;
-            proc.Start();
-        }
-
-        private void BtnUndo_Click(object sender, RoutedEventArgs e)
-        {
-            var popUndo = UndoList.Pop();
-            RedoList.Push(popUndo);
-            CurrentFile = UndoList.Pop();
-            UndoList.Push(CurrentFile);
-
-            FileDatas = FileDirectory.GetCurrentData(CurrentFile.FullName, true);
-            SetUndoRedoStatus();
-        }
-
-        private void BtnRedo_Click(object sender, RoutedEventArgs e)
-        {
-            CurrentFile = RedoList.Pop();
-            UndoList.Push(CurrentFile);
-            FileDatas = FileDirectory.GetCurrentData(CurrentFile.FullName, true);
-            ExplorerChanged(this, CurrentFile);
-            SetUndoRedoStatus();
-        }
-
-        private void BtnMoveUp_Click(object sender, RoutedEventArgs e)
-        {
-            var parent = Directory.GetParent(CurrentFile.FullName);
-            CurrentFile = new FileData { FullName = parent.FullName };
-
-
-            RedoList.Clear();
-            UndoList.Push(CurrentFile);
-
-            FileDatas = FileDirectory.GetCurrentData(CurrentFile.FullName, true);
-            SetUndoRedoStatus();
-        }
-
-        void SetUndoRedoStatus()
-        {
-            IsUndoEnabled = UndoList.Count == 1 ? false : true;
-            IsRedoEnabled = RedoList.Count == 0 ? false : true;
-
-            var parent = Directory.GetParent(CurrentFile.FullName);
+            var parent = Directory.GetParent(Current.FullName);
 
             if (parent == null)
             {
@@ -281,33 +299,31 @@ namespace Commander.Part.Explorer.ViewModels
             }
 
             if (FileWatcher != null)
-                FileWatcher.ChangeWatchPath(CurrentFile.FullName);
+                FileWatcher.ChangeWatchPath(Current.FullName);
         }
 
         private void Lv_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            var item = view.lv.SelectedItem as FileData;
-            if (item != null)
+            if (FileData != null)
             {
-                CurrentFile = item;
-                if (CurrentFile.FileType == FileTypes.Directory || CurrentFile.FileType == FileTypes.Parent
-                    || CurrentFile.FileType == FileTypes.HiddenDirectory)
+                Current = FileData;
+                if (Current.FileType == FileTypes.Directory || Current.FileType == FileTypes.Parent
+                    || Current.FileType == FileTypes.HiddenDirectory)
                 {
-                    var newData = FileDirectory.GetCurrentData(CurrentFile.FullName, true);
+                    var newData = FileDirectory.GetCurrentData(Current.FullName, true);
                     if (newData.Count == 0 && FileDirectory.IsError == true)
                     {
                         MessageBox.Show(FileDirectory.ErrorMessage);
                         return;
                     }
                     FileDatas = newData;
-                    UndoList.Push(CurrentFile);
+                    UndoList.Push(Current);
                     RedoList.Clear();
-                    ExplorerChanged(this, CurrentFile);
                     SetUndoRedoStatus();
                 }
-                else if (CurrentFile.FileType == FileTypes.File)
+                else if (Current.FileType == FileTypes.File)
                 {
-                    Process.Start(CurrentFile.FullName);
+                    Process.Start(Current.FullName);
                 }
             }
         }

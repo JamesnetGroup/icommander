@@ -1,4 +1,5 @@
-﻿using Commander.OperationSystem.Windows;
+﻿using Commander.Data.File;
+using Commander.OperationSystem.Windows;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -10,7 +11,7 @@ namespace Commander.Part.Explorer.ViewModels.Temps
 
     public class FileDirectory
     {
-        private static SystemIcon sysIcons = new SystemIcon();
+        private static readonly SystemIcon sysIcons = new SystemIcon();
 
         public static bool IsError = false;
 

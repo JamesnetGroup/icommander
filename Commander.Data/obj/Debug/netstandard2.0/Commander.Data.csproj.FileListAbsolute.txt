@@ -1,0 +1,9 @@
+C:\ncoresoft\icommander\Commander.Data\bin\Debug\netstandard2.0\Commander.Data.deps.json
+C:\ncoresoft\icommander\Commander.Data\bin\Debug\netstandard2.0\Commander.Data.dll
+C:\ncoresoft\icommander\Commander.Data\bin\Debug\netstandard2.0\Commander.Data.pdb
+C:\ncoresoft\icommander\Commander.Data\obj\Debug\netstandard2.0\Commander.Data.csprojAssemblyReference.cache
+C:\ncoresoft\icommander\Commander.Data\obj\Debug\netstandard2.0\Commander.Data.AssemblyInfoInputs.cache
+C:\ncoresoft\icommander\Commander.Data\obj\Debug\netstandard2.0\Commander.Data.AssemblyInfo.cs
+C:\ncoresoft\icommander\Commander.Data\obj\Debug\netstandard2.0\Commander.Data.csproj.CoreCompileInputs.cache
+C:\ncoresoft\icommander\Commander.Data\obj\Debug\netstandard2.0\Commander.Data.dll
+C:\ncoresoft\icommander\Commander.Data\obj\Debug\netstandard2.0\Commander.Data.pdb

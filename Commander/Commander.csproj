@@ -95,6 +95,10 @@
       <Project>{ac92edd6-460e-479c-bea7-5437685c16a6}</Project>
       <Name>Commander.Converter</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Commander.LayoutSupport\Commander.LayoutSupport.csproj">
+      <Project>{a9292575-2abf-491d-91bf-e40dde66ff92}</Project>
+      <Name>Commander.LayoutSupport</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Commander.Part.Explorer\Commander.Part.Explorer.csproj">
       <Project>{e9917ee7-16f2-4b49-96b3-dd61560c89b3}</Project>
       <Name>Commander.Part.Explorer</Name>

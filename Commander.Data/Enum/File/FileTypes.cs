@@ -1,4 +1,4 @@
-﻿namespace Commander.Part.Explorer.ViewModels.Temps
+﻿namespace Commander.Data.File
 {
     public enum FileTypes
     {

@@ -31,3 +31,8 @@ C:\ncoresoft\icommander\Commander\bin\Debug\Commander.Converter.pdb
 C:\ncoresoft\icommander\Commander\bin\Debug\Commander.WindowsReference.dll
 C:\ncoresoft\icommander\Commander\bin\Debug\Commander.WindowsReference.pdb
 C:\ncoresoft\icommander\Commander\bin\Debug\Commander.WindowsReference.dll.config
+C:\ncoresoft\icommander\Commander\bin\Debug\Commander.LayoutSupport.dll
+C:\ncoresoft\icommander\Commander\bin\Debug\Commander.LayoutSupport.pdb
+C:\ncoresoft\icommander\Commander\bin\Debug\Commander.LayoutSupport.dll.config
+C:\ncoresoft\icommander\Commander\bin\Debug\Commander.Data.dll
+C:\ncoresoft\icommander\Commander\bin\Debug\Commander.Data.pdb

@@ -59,10 +59,7 @@
     <Compile Include="ViewModels\ExplorerViewModel.cs" />
     <Compile Include="ViewModels\Temps\ExplorerRefreshWorker.cs" />
     <Compile Include="ViewModels\Temps\ExplorerWatcher.cs" />
-    <Compile Include="ViewModels\Temps\FileData.cs" />
     <Compile Include="ViewModels\Temps\FileDirectory.cs" />
-    <Compile Include="ViewModels\Temps\FileTypes.cs" />
-    <Compile Include="ViewModels\Temps\MousePoint.cs" />
     <Compile Include="Views\ExplorerView.xaml.cs">
       <DependentUpon>ExplorerView.xaml</DependentUpon>
     </Compile>
@@ -120,6 +117,14 @@
     <ProjectReference Include="..\Commander.Converter\Commander.Converter.csproj">
       <Project>{ac92edd6-460e-479c-bea7-5437685c16a6}</Project>
       <Name>Commander.Converter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Commander.Data\Commander.Data.csproj">
+      <Project>{9D186C9C-483A-4DB4-8931-19A54051F54E}</Project>
+      <Name>Commander.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Commander.LayoutSupport\Commander.LayoutSupport.csproj">
+      <Project>{a9292575-2abf-491d-91bf-e40dde66ff92}</Project>
+      <Name>Commander.LayoutSupport</Name>
     </ProjectReference>
     <ProjectReference Include="..\Commander.Resources\Commander.Resources.csproj">
       <Project>{45e06be6-fabe-4b26-9123-ef90cb047c9a}</Project>
