@@ -10,3 +10,15 @@ C:\ncoresoft\icommander\Commander.Control\obj\Debug\Commander.Control.pdb
 C:\ncoresoft\icommander\Commander.Control\bin\Debug\Commander.WindowsBase.dll
 C:\ncoresoft\icommander\Commander.Control\bin\Debug\Commander.WindowsBase.pdb
 C:\ncoresoft\icommander\Commander.Control\obj\Debug\Commander.Control.csproj.CopyComplete
+C:\devncore\icommander\Commander.Control\bin\Debug\Commander.Control.dll.config
+C:\devncore\icommander\Commander.Control\bin\Debug\Commander.Control.dll
+C:\devncore\icommander\Commander.Control\bin\Debug\Commander.Control.pdb
+C:\devncore\icommander\Commander.Control\bin\Debug\Commander.WindowsBase.dll
+C:\devncore\icommander\Commander.Control\bin\Debug\Commander.WindowsBase.pdb
+C:\devncore\icommander\Commander.Control\obj\Debug\Commander.Control.csprojAssemblyReference.cache
+C:\devncore\icommander\Commander.Control\obj\Debug\Commander.Control.Properties.Resources.resources
+C:\devncore\icommander\Commander.Control\obj\Debug\Commander.Control.csproj.GenerateResource.cache
+C:\devncore\icommander\Commander.Control\obj\Debug\Commander.Control.csproj.CoreCompileInputs.cache
+C:\devncore\icommander\Commander.Control\obj\Debug\Commander.Control.csproj.CopyComplete
+C:\devncore\icommander\Commander.Control\obj\Debug\Commander.Control.dll
+C:\devncore\icommander\Commander.Control\obj\Debug\Commander.Control.pdb

@@ -7,3 +7,12 @@ C:\ncoresoft\icommander\Commander.Data\obj\Debug\netstandard2.0\Commander.Data.A
 C:\ncoresoft\icommander\Commander.Data\obj\Debug\netstandard2.0\Commander.Data.csproj.CoreCompileInputs.cache
 C:\ncoresoft\icommander\Commander.Data\obj\Debug\netstandard2.0\Commander.Data.dll
 C:\ncoresoft\icommander\Commander.Data\obj\Debug\netstandard2.0\Commander.Data.pdb
+C:\devncore\icommander\Commander.Data\bin\Debug\netstandard2.0\Commander.Data.deps.json
+C:\devncore\icommander\Commander.Data\bin\Debug\netstandard2.0\Commander.Data.dll
+C:\devncore\icommander\Commander.Data\bin\Debug\netstandard2.0\Commander.Data.pdb
+C:\devncore\icommander\Commander.Data\obj\Debug\netstandard2.0\Commander.Data.csprojAssemblyReference.cache
+C:\devncore\icommander\Commander.Data\obj\Debug\netstandard2.0\Commander.Data.AssemblyInfoInputs.cache
+C:\devncore\icommander\Commander.Data\obj\Debug\netstandard2.0\Commander.Data.AssemblyInfo.cs
+C:\devncore\icommander\Commander.Data\obj\Debug\netstandard2.0\Commander.Data.csproj.CoreCompileInputs.cache
+C:\devncore\icommander\Commander.Data\obj\Debug\netstandard2.0\Commander.Data.dll
+C:\devncore\icommander\Commander.Data\obj\Debug\netstandard2.0\Commander.Data.pdb

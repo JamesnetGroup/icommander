@@ -4,7 +4,7 @@
 library
 C#
 .cs
-C:\ncoresoft\icommander\Commander.Resources\obj\Debug\
+C:\devncore\icommander\Commander.Resources\obj\Debug\
 Commander.Resources
 none
 false
@@ -13,7 +13,7 @@ DEBUG;TRACE
 31868696421
 
 3-630027162
-15-1017421101
+15-660323497
 Design\ConverterResource.xaml;Design\GeometryResource.xaml;Design\ScrollViewerResource.xaml;
 
 False
