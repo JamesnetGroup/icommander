@@ -7,3 +7,12 @@ C:\ncoresoft\icommander\Commander.WindowsReference\obj\Debug\Commander.WindowsRe
 C:\ncoresoft\icommander\Commander.WindowsReference\obj\Debug\Commander.WindowsReference.csproj.CoreCompileInputs.cache
 C:\ncoresoft\icommander\Commander.WindowsReference\obj\Debug\Commander.WindowsReference.dll
 C:\ncoresoft\icommander\Commander.WindowsReference\obj\Debug\Commander.WindowsReference.pdb
+C:\devncore\icommander\Commander.WindowsReference\bin\Debug\Commander.WindowsReference.dll.config
+C:\devncore\icommander\Commander.WindowsReference\bin\Debug\Commander.WindowsReference.dll
+C:\devncore\icommander\Commander.WindowsReference\bin\Debug\Commander.WindowsReference.pdb
+C:\devncore\icommander\Commander.WindowsReference\obj\Debug\Commander.WindowsReference.csprojAssemblyReference.cache
+C:\devncore\icommander\Commander.WindowsReference\obj\Debug\Commander.WindowsReference.Properties.Resources.resources
+C:\devncore\icommander\Commander.WindowsReference\obj\Debug\Commander.WindowsReference.csproj.GenerateResource.cache
+C:\devncore\icommander\Commander.WindowsReference\obj\Debug\Commander.WindowsReference.csproj.CoreCompileInputs.cache
+C:\devncore\icommander\Commander.WindowsReference\obj\Debug\Commander.WindowsReference.dll
+C:\devncore\icommander\Commander.WindowsReference\obj\Debug\Commander.WindowsReference.pdb

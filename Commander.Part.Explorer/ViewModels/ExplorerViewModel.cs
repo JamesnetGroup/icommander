@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Threading;
 using System.Windows;
 using System.Windows.Input;
@@ -124,7 +125,7 @@ namespace Commander.Part.Explorer.ViewModels
 
         protected override void OnViewLoaded()
         {
-            string path = @"C:\ncoresoft";
+            string path = @"C:\devncore";
             UndoList = new Stack<FileData>();
             RedoList = new Stack<FileData>();
             Refresh(path);
@@ -159,14 +160,10 @@ namespace Commander.Part.Explorer.ViewModels
 
         private void MoveClick(object obj)
         {
-            var parent = Directory.GetParent(FileData.FullName);
-            if (parent != null)
+            Current =  FileDatas.FirstOrDefault();
+            if (Current is FileData f)
             {
-                FileData = new FileData { FullName = parent.FullName };
-                RedoList.Clear();
-                UndoList.Push(FileData);
-                FileDatas = FileDirectory.GetCurrentData(FileData.FullName, true);
-                SetButtons();
+                DoubleClick(Current);
             }
         }
         #endregion
