@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "USswEVYKGutaOLldtq9IncSCmWP0++Cf1NlOP4SmGcuF6tm3xJ/DKIIXs5SY+i2u5zTk6N83ETOaUQ3bCcXX+Q==",
+  "dgSpecHash": "kXoIV7IX7Sd5kOJ/vzZlw5fkn6nqX5rF1RmKYh+peboUoCcHQTWyCdwIuaQSzKJx3XqJkrBAVK8YjhrOg1NBlQ==",
   "success": true,
   "projectFilePath": "C:\\devncore\\icommander\\Commander.Data\\Commander.Data.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\james\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\james\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+    "C:\\Users\\CGV\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\CGV\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
   ],
   "logs": []
 }

@@ -125,7 +125,7 @@ namespace Commander.Part.Explorer.ViewModels
 
         protected override void OnViewLoaded()
         {
-            string path = @"C:\devncore";
+            string path = Environment.CurrentDirectory;
             UndoList = new Stack<FileData>();
             RedoList = new Stack<FileData>();
             Refresh(path);
