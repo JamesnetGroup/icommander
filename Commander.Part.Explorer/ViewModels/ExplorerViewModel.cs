@@ -7,8 +7,8 @@ using System.Threading;
 using System.Windows;
 using System.Windows.Input;
 using Commander.Data.File;
-using Commander.Part.Explorer.Views;
 using Commander.Part.Explorer.ViewModels.Temps;
+using Commander.Part.Explorer.Views;
 using Commander.Windows.Mvvm;
 
 
