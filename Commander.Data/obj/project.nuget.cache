@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kXoIV7IX7Sd5kOJ/vzZlw5fkn6nqX5rF1RmKYh+peboUoCcHQTWyCdwIuaQSzKJx3XqJkrBAVK8YjhrOg1NBlQ==",
+  "dgSpecHash": "ZlEOJfBRG8oAzaSbg4ZPCv9FazbTFatXIePRocBtWTWcy7/Unj8n44oFhKe2Tjxd+XCbbz3O6dMSD/pEMguaOA==",
   "success": true,
-  "projectFilePath": "C:\\devncore\\icommander\\Commander.Data\\Commander.Data.csproj",
+  "projectFilePath": "C:\\github\\icommander\\Commander.Data\\Commander.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\CGV\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\CGV\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"

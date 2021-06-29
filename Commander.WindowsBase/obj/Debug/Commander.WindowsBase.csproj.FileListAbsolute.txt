@@ -10,3 +10,9 @@ C:\devncore\icommander\Commander.WindowsBase\obj\Debug\Commander.WindowsBase.csp
 C:\devncore\icommander\Commander.WindowsBase\obj\Debug\Commander.WindowsBase.csproj.CoreCompileInputs.cache
 C:\devncore\icommander\Commander.WindowsBase\obj\Debug\Commander.WindowsBase.dll
 C:\devncore\icommander\Commander.WindowsBase\obj\Debug\Commander.WindowsBase.pdb
+C:\github\icommander\Commander.WindowsBase\bin\Debug\Commander.WindowsBase.dll
+C:\github\icommander\Commander.WindowsBase\bin\Debug\Commander.WindowsBase.pdb
+C:\github\icommander\Commander.WindowsBase\obj\Debug\Commander.WindowsBase.csproj.AssemblyReference.cache
+C:\github\icommander\Commander.WindowsBase\obj\Debug\Commander.WindowsBase.csproj.CoreCompileInputs.cache
+C:\github\icommander\Commander.WindowsBase\obj\Debug\Commander.WindowsBase.dll
+C:\github\icommander\Commander.WindowsBase\obj\Debug\Commander.WindowsBase.pdb

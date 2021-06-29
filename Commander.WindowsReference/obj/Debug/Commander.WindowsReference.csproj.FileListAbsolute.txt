@@ -16,3 +16,12 @@ C:\devncore\icommander\Commander.WindowsReference\obj\Debug\Commander.WindowsRef
 C:\devncore\icommander\Commander.WindowsReference\obj\Debug\Commander.WindowsReference.csproj.CoreCompileInputs.cache
 C:\devncore\icommander\Commander.WindowsReference\obj\Debug\Commander.WindowsReference.dll
 C:\devncore\icommander\Commander.WindowsReference\obj\Debug\Commander.WindowsReference.pdb
+C:\github\icommander\Commander.WindowsReference\bin\Debug\Commander.WindowsReference.dll.config
+C:\github\icommander\Commander.WindowsReference\bin\Debug\Commander.WindowsReference.dll
+C:\github\icommander\Commander.WindowsReference\bin\Debug\Commander.WindowsReference.pdb
+C:\github\icommander\Commander.WindowsReference\obj\Debug\Commander.WindowsReference.csproj.AssemblyReference.cache
+C:\github\icommander\Commander.WindowsReference\obj\Debug\Commander.WindowsReference.Properties.Resources.resources
+C:\github\icommander\Commander.WindowsReference\obj\Debug\Commander.WindowsReference.csproj.GenerateResource.cache
+C:\github\icommander\Commander.WindowsReference\obj\Debug\Commander.WindowsReference.csproj.CoreCompileInputs.cache
+C:\github\icommander\Commander.WindowsReference\obj\Debug\Commander.WindowsReference.dll
+C:\github\icommander\Commander.WindowsReference\obj\Debug\Commander.WindowsReference.pdb

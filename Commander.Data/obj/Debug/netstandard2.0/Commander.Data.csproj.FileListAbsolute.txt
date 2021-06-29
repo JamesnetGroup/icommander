@@ -16,3 +16,12 @@ C:\devncore\icommander\Commander.Data\obj\Debug\netstandard2.0\Commander.Data.As
 C:\devncore\icommander\Commander.Data\obj\Debug\netstandard2.0\Commander.Data.csproj.CoreCompileInputs.cache
 C:\devncore\icommander\Commander.Data\obj\Debug\netstandard2.0\Commander.Data.dll
 C:\devncore\icommander\Commander.Data\obj\Debug\netstandard2.0\Commander.Data.pdb
+C:\github\icommander\Commander.Data\bin\Debug\netstandard2.0\Commander.Data.deps.json
+C:\github\icommander\Commander.Data\bin\Debug\netstandard2.0\Commander.Data.dll
+C:\github\icommander\Commander.Data\bin\Debug\netstandard2.0\Commander.Data.pdb
+C:\github\icommander\Commander.Data\obj\Debug\netstandard2.0\Commander.Data.csproj.AssemblyReference.cache
+C:\github\icommander\Commander.Data\obj\Debug\netstandard2.0\Commander.Data.AssemblyInfoInputs.cache
+C:\github\icommander\Commander.Data\obj\Debug\netstandard2.0\Commander.Data.AssemblyInfo.cs
+C:\github\icommander\Commander.Data\obj\Debug\netstandard2.0\Commander.Data.csproj.CoreCompileInputs.cache
+C:\github\icommander\Commander.Data\obj\Debug\netstandard2.0\Commander.Data.dll
+C:\github\icommander\Commander.Data\obj\Debug\netstandard2.0\Commander.Data.pdb
