@@ -1,10 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Windows;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 
 namespace Commander.Windows.Controls
 {
-    public class TabGrid : Grid
+	public class TabGrid : Grid
     {
         //List<ExplorerTabControl> TabChildren;
         //public ExplorerTabControl CurrentTab;

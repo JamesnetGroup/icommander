@@ -1,10 +1,9 @@
 ﻿using Commander.Windows.Controls;
-using System.Windows;
 using System.Windows.Controls.Primitives;
 
 namespace Commander.Part.Main.Views
 {
-    public partial class MainWindow : NcoreWindow
+	public partial class MainWindow : NcoreWindow
     {
         public MainWindow()
         {

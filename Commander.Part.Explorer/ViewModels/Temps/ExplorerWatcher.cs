@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Security.Permissions;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace Commander.Part.Explorer.ViewModels.Temps
 {
-    public class ExplorerWatcher
+	public class ExplorerWatcher
     {
         private readonly ExplorerViewModel explorer;
         private FileSystemWatcher watcher;

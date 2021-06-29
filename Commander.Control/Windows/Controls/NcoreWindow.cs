@@ -1,11 +1,10 @@
 ﻿using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
 using Commander.Windows.Mvvm;
 
 namespace Commander.Windows.Controls
 {
-    public class NcoreWindow : Window
+	public class NcoreWindow : Window
     {
         private UIElement TaskLayout;
         public NcoreWindow()
