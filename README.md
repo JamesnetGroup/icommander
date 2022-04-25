@@ -17,7 +17,7 @@
 - [개발 환경](#개발-환경)
 - [학습 가이드](#학습-가이드)
 - [WPF 구조](#wpf-구조)
-- [MVVM](#mvvm)
+- [ICommander를](#icommander)
 
 <br />
 
