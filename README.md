@@ -14,8 +14,6 @@
 - [프로젝트 구조](#프로젝트-구조)
 
 
-<br />
-
 ## 소개
 > WPF 를 활용하여 MVVM 패턴으로 만든 윈도우 탐색기 입니다. 
 <br />
@@ -44,7 +42,7 @@
 <br />
 
 ## 프로젝트 구조
-> MVVM 패턴 프로젝트 구조
+> MVVM 패턴으로 만들어진 구조
 
 ![image](https://user-images.githubusercontent.com/76234292/165554004-f9f8f4d3-d22f-455f-beb3-fa5de4bf8407.png)
 
