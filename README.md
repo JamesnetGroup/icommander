@@ -5,13 +5,7 @@
   <a href="https://github.com/devncore/devncore"><strong>Devncore OpenSource</strong></a>
 </p>
 
-#
-
-
-<p align="center">
-  윈도우 탐색기 OpenSource WPF로 구현하였습니다. 
-</p>
-
+<br />
 
 ## 목차
 - [소개](#소개)
