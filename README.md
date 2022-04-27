@@ -35,6 +35,9 @@
 ✔️ **WPF .NET Core** &nbsp; [.NET 6.0]
 
 ✔️ **Visual Studio 2022**  
+
+✔️ **C# 10.0**  
+
 <br/>
 
 ![11](https://user-images.githubusercontent.com/76234292/165532633-b5c90fad-6b62-4677-a638-48cff70ef398.png)
