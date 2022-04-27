@@ -1,8 +1,7 @@
 <h1 align="center"> ICommander WPF </h1> <br>
 
-   
+<p align="center"><img src="Images\logo.png"></p>
 
- ![로고](https://user-images.githubusercontent.com/76234292/165537537-c2b0c80f-ffd4-4f5f-8093-8cfa0e7fc2e8.png)
 
 
 
