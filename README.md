@@ -1,19 +1,24 @@
-## ICommander WPF
+<h1 align="center"> ICommander WPF </h1> <br>
 
-이 리포지토리는 ICommander를 활용하여 윈도우탐색기를 WPF로 구현한 OpenSource 입니다. <br />
+   
+
+ ![로고](https://user-images.githubusercontent.com/76234292/165537537-c2b0c80f-ffd4-4f5f-8093-8cfa0e7fc2e8.png)
+
+
+
+# 
+
+윈도우 탐색기 OpenSource <br />
+WPF로 구현하였습니다. 
 
 <a href="https://github.com/devncore/devncore"><strong>더 알아보기 »</strong></a>
- 
-| Star | License | Activity |
-|:----:|:-------:|:--------:|
-| <a href="https://github.com/devncore/icommander/stargazers"><img src="https://img.shields.io/github/stars/devncore/icommander" alt="Github Stars"></a> | <img src="https://img.shields.io/github/license/devncore/icommander" alt="License"> | <a href="https://github.com/devncore/icommander/pulse"><img src="https://img.shields.io/github/commit-activity/m/devncore/icommander" alt="Commits-per-month"></a> |
 
 <br />
 
 
 
-## Contents
-- [개요](#개요)
+## 목차
+- [소개](#소개)
 - [개발 환경](#개발-환경)
 - [학습 가이드](#학습-가이드)
 - [WPF 구조](#wpf-구조)
@@ -21,7 +26,13 @@
 
 <br />
 
-## 개요
+## 소개
+ 
+| Star | License | Activity |
+|:----:|:-------:|:--------:|
+| <a href="https://github.com/devncore/icommander/stargazers"><img src="https://img.shields.io/github/stars/devncore/icommander" alt="Github Stars"></a> | <img src="https://img.shields.io/github/license/devncore/icommander" alt="License"> | <a href="https://github.com/devncore/icommander/pulse"><img src="https://img.shields.io/github/commit-activity/m/devncore/icommander" alt="Commits-per-month"></a> |
+
+
 ![제목 없음](https://user-images.githubusercontent.com/76234292/165135268-767fa9f6-f2a2-4c6c-b3d3-a80ee1f39d29.png)
 
 > ICommander 를 활용하여 MVVM 패턴으로 만든 윈도우 탐색기 입니다. 
