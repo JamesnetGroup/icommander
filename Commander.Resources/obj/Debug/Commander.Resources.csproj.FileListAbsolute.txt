@@ -30,7 +30,6 @@ C:\devncore\icommander\Commander.Resources\bin\Debug\Commander.Control.pdb
 C:\devncore\icommander\Commander.Resources\bin\Debug\Commander.Control.dll.config
 C:\devncore\icommander\Commander.Resources\bin\Debug\Commander.Converter.pdb
 C:\devncore\icommander\Commander.Resources\bin\Debug\Commander.WindowsBase.pdb
-C:\devncore\icommander\Commander.Resources\obj\Debug\Commander.Resources.csprojAssemblyReference.cache
 C:\devncore\icommander\Commander.Resources\obj\Debug\Design\ConverterResource.baml
 C:\devncore\icommander\Commander.Resources\obj\Debug\Design\GeometryResource.baml
 C:\devncore\icommander\Commander.Resources\obj\Debug\Design\ScrollViewerResource.baml
@@ -64,3 +63,4 @@ C:\github\icommander\Commander.Resources\obj\Debug\Commander.Resources.csproj.Co
 C:\github\icommander\Commander.Resources\obj\Debug\Commander.Resources.csproj.CopyComplete
 C:\github\icommander\Commander.Resources\obj\Debug\Commander.Resources.dll
 C:\github\icommander\Commander.Resources\obj\Debug\Commander.Resources.pdb
+C:\devncore\icommander\Commander.Resources\obj\Debug\Commander.Resources.csproj.AssemblyReference.cache

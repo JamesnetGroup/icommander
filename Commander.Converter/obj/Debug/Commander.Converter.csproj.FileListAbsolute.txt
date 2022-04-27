@@ -5,7 +5,6 @@ C:\ncoresoft\icommander\Commander.Converter\obj\Debug\Commander.Converter.dll
 C:\ncoresoft\icommander\Commander.Converter\obj\Debug\Commander.Converter.pdb
 C:\devncore\icommander\Commander.Converter\bin\Debug\Commander.Converter.dll
 C:\devncore\icommander\Commander.Converter\bin\Debug\Commander.Converter.pdb
-C:\devncore\icommander\Commander.Converter\obj\Debug\Commander.Converter.csprojAssemblyReference.cache
 C:\devncore\icommander\Commander.Converter\obj\Debug\Commander.Converter.csproj.CoreCompileInputs.cache
 C:\devncore\icommander\Commander.Converter\obj\Debug\Commander.Converter.dll
 C:\devncore\icommander\Commander.Converter\obj\Debug\Commander.Converter.pdb
@@ -15,3 +14,4 @@ C:\github\icommander\Commander.Converter\obj\Debug\Commander.Converter.csproj.As
 C:\github\icommander\Commander.Converter\obj\Debug\Commander.Converter.csproj.CoreCompileInputs.cache
 C:\github\icommander\Commander.Converter\obj\Debug\Commander.Converter.dll
 C:\github\icommander\Commander.Converter\obj\Debug\Commander.Converter.pdb
+C:\devncore\icommander\Commander.Converter\obj\Debug\Commander.Converter.csproj.AssemblyReference.cache

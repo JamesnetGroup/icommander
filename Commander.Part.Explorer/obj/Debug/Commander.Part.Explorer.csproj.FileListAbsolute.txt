@@ -54,7 +54,6 @@ C:\devncore\icommander\Commander.Part.Explorer\bin\Debug\Commander.Resources.dll
 C:\devncore\icommander\Commander.Part.Explorer\bin\Debug\Commander.WindowsBase.pdb
 C:\devncore\icommander\Commander.Part.Explorer\bin\Debug\Commander.WindowsReference.pdb
 C:\devncore\icommander\Commander.Part.Explorer\bin\Debug\Commander.WindowsReference.dll.config
-C:\devncore\icommander\Commander.Part.Explorer\obj\Debug\Commander.Part.Explorer.csprojAssemblyReference.cache
 C:\devncore\icommander\Commander.Part.Explorer\obj\Debug\App.baml
 C:\devncore\icommander\Commander.Part.Explorer\obj\Debug\Design\ExplorerViewResource.baml
 C:\devncore\icommander\Commander.Part.Explorer\obj\Debug\Views\ExplorerView.baml
@@ -103,3 +102,4 @@ C:\github\icommander\Commander.Part.Explorer\obj\Debug\Commander.Part.Explorer.c
 C:\github\icommander\Commander.Part.Explorer\obj\Debug\Commander.Part.Explorer.csproj.CopyComplete
 C:\github\icommander\Commander.Part.Explorer\obj\Debug\Commander.Part.Explorer.dll
 C:\github\icommander\Commander.Part.Explorer\obj\Debug\Commander.Part.Explorer.pdb
+C:\devncore\icommander\Commander.Part.Explorer\obj\Debug\Commander.Part.Explorer.csproj.AssemblyReference.cache

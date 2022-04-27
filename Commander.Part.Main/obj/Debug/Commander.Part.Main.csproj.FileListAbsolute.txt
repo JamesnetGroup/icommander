@@ -50,7 +50,6 @@ C:\devncore\icommander\Commander.Part.Main\bin\Debug\Commander.WindowsBase.pdb
 C:\devncore\icommander\Commander.Part.Main\bin\Debug\Commander.Data.pdb
 C:\devncore\icommander\Commander.Part.Main\bin\Debug\Commander.WindowsReference.pdb
 C:\devncore\icommander\Commander.Part.Main\bin\Debug\Commander.WindowsReference.dll.config
-C:\devncore\icommander\Commander.Part.Main\obj\Debug\Commander.Part.Main.csprojAssemblyReference.cache
 C:\devncore\icommander\Commander.Part.Main\obj\Debug\App.baml
 C:\devncore\icommander\Commander.Part.Main\obj\Debug\Design\MainWindowResource.baml
 C:\devncore\icommander\Commander.Part.Main\obj\Debug\Views\MainWindow.baml
@@ -97,3 +96,4 @@ C:\github\icommander\Commander.Part.Main\obj\Debug\Commander.Part.Main.csproj.Co
 C:\github\icommander\Commander.Part.Main\obj\Debug\Commander.Part.Main.csproj.CopyComplete
 C:\github\icommander\Commander.Part.Main\obj\Debug\Commander.Part.Main.dll
 C:\github\icommander\Commander.Part.Main\obj\Debug\Commander.Part.Main.pdb
+C:\devncore\icommander\Commander.Part.Main\obj\Debug\Commander.Part.Main.csproj.AssemblyReference.cache

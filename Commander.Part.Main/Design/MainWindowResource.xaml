@@ -199,7 +199,7 @@
                             <Setter Property="Background" Value="{StaticResource LGB.BAR}"/>
                         </Style>
                         <Style TargetType="{x:Type TextBlock}" x:Key="IN.TITLE">
-                            <Setter Property="Text" Value="iCommander 2021"/>
+                            <Setter Property="Text" Value="iCommander 2022"/>
                             <Setter Property="VerticalAlignment" Value="Center"/>
                             <Setter Property="Margin" Value="0 0 0 0"/>
                             <Setter Property="Foreground" Value="#FFFFFF"/>

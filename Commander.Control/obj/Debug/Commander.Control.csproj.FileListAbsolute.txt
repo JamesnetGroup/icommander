@@ -15,7 +15,6 @@ C:\devncore\icommander\Commander.Control\bin\Debug\Commander.Control.dll
 C:\devncore\icommander\Commander.Control\bin\Debug\Commander.Control.pdb
 C:\devncore\icommander\Commander.Control\bin\Debug\Commander.WindowsBase.dll
 C:\devncore\icommander\Commander.Control\bin\Debug\Commander.WindowsBase.pdb
-C:\devncore\icommander\Commander.Control\obj\Debug\Commander.Control.csprojAssemblyReference.cache
 C:\devncore\icommander\Commander.Control\obj\Debug\Commander.Control.Properties.Resources.resources
 C:\devncore\icommander\Commander.Control\obj\Debug\Commander.Control.csproj.GenerateResource.cache
 C:\devncore\icommander\Commander.Control\obj\Debug\Commander.Control.csproj.CoreCompileInputs.cache
@@ -34,3 +33,4 @@ C:\github\icommander\Commander.Control\obj\Debug\Commander.Control.csproj.CoreCo
 C:\github\icommander\Commander.Control\obj\Debug\Commander.Control.csproj.CopyComplete
 C:\github\icommander\Commander.Control\obj\Debug\Commander.Control.dll
 C:\github\icommander\Commander.Control\obj\Debug\Commander.Control.pdb
+C:\devncore\icommander\Commander.Control\obj\Debug\Commander.Control.csproj.AssemblyReference.cache

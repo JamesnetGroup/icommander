@@ -25,7 +25,6 @@ C:\devncore\icommander\Commander.LayoutSupport\bin\Debug\Commander.Data.pdb
 C:\devncore\icommander\Commander.LayoutSupport\bin\Debug\Commander.WindowsBase.pdb
 C:\devncore\icommander\Commander.LayoutSupport\bin\Debug\Commander.WindowsReference.pdb
 C:\devncore\icommander\Commander.LayoutSupport\bin\Debug\Commander.WindowsReference.dll.config
-C:\devncore\icommander\Commander.LayoutSupport\obj\Debug\Commander.LayoutSupport.csprojAssemblyReference.cache
 C:\devncore\icommander\Commander.LayoutSupport\obj\Debug\Commander.LayoutSupport.Properties.Resources.resources
 C:\devncore\icommander\Commander.LayoutSupport\obj\Debug\Commander.LayoutSupport.csproj.GenerateResource.cache
 C:\devncore\icommander\Commander.LayoutSupport\obj\Debug\Commander.LayoutSupport.csproj.CoreCompileInputs.cache
@@ -49,3 +48,4 @@ C:\github\icommander\Commander.LayoutSupport\obj\Debug\Commander.LayoutSupport.c
 C:\github\icommander\Commander.LayoutSupport\obj\Debug\Commander.LayoutSupport.csproj.CopyComplete
 C:\github\icommander\Commander.LayoutSupport\obj\Debug\Commander.LayoutSupport.dll
 C:\github\icommander\Commander.LayoutSupport\obj\Debug\Commander.LayoutSupport.pdb
+C:\devncore\icommander\Commander.LayoutSupport\obj\Debug\Commander.LayoutSupport.csproj.AssemblyReference.cache

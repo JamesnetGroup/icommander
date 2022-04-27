@@ -63,7 +63,6 @@ C:\devncore\icommander\Commander\bin\Debug\Commander.WindowsBase.pdb
 C:\devncore\icommander\Commander\bin\Debug\Commander.WindowsReference.pdb
 C:\devncore\icommander\Commander\bin\Debug\Commander.WindowsReference.dll.config
 C:\devncore\icommander\Commander\bin\Debug\Commander.Data.pdb
-C:\devncore\icommander\Commander\obj\Debug\Commander.csprojAssemblyReference.cache
 C:\devncore\icommander\Commander\obj\Debug\App.baml
 C:\devncore\icommander\Commander\obj\Debug\App.g.cs
 C:\devncore\icommander\Commander\obj\Debug\Commander_MarkupCompile.cache
@@ -112,3 +111,5 @@ C:\github\icommander\Commander\obj\Debug\Commander.csproj.CoreCompileInputs.cach
 C:\github\icommander\Commander\obj\Debug\Commander.csproj.CopyComplete
 C:\github\icommander\Commander\obj\Debug\Commander.exe
 C:\github\icommander\Commander\obj\Debug\Commander.pdb
+C:\devncore\icommander\Commander\obj\Debug\Commander.csproj.AssemblyReference.cache
+C:\devncore\icommander\Commander\obj\Debug\Commander.csproj.SuggestedBindingRedirects.cache
