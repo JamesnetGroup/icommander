@@ -1,27 +1,24 @@
 <h1 align="center"> ICommander WPF </h1> <br>
+<p align="center"><img src="Images\logo.png", width="400"></p>
 
-<p align="center"><img src="Images\logo.png"></p>
+<p align="center">
+  <a href="https://github.com/devncore/devncore"><strong>Devncore OpenSource</strong></a>
+</p>
+
+#
 
 
-
-
-# 
-
-윈도우 탐색기 OpenSource <br />
-WPF로 구현하였습니다. 
-
-<a href="https://github.com/devncore/devncore"><strong>더 알아보기 »</strong></a>
-
-<br />
-
+<p align="center">
+  윈도우 탐색기 OpenSource WPF로 구현하였습니다. 
+</p>
 
 
 ## 목차
 - [소개](#소개)
 - [개발 환경](#개발-환경)
 - [학습 가이드](#학습-가이드)
-- [WPF 구조](#wpf-구조)
-- [ICommander를](#icommander)
+- [프로젝트 구조](#프로젝트-구조)
+
 
 <br />
 
