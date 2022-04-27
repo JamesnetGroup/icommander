@@ -9,10 +9,10 @@
 
 ## 목차
 - [소개](#소개)
-- [특징](#특징)
 - [개발 환경](#개발-환경)
 - [프로젝트 구조](#프로젝트-구조)
 - [학습 가이드](#학습-가이드)
+- [기능](#기능)
 
 <br />
 
@@ -25,11 +25,6 @@
 | <a href="https://github.com/devncore/icommander/stargazers"><img src="https://img.shields.io/github/stars/devncore/icommander" alt="Github Stars"></a> | <img src="https://img.shields.io/github/license/devncore/icommander" alt="License"> | <a href="https://github.com/devncore/icommander/pulse"><img src="https://img.shields.io/github/commit-activity/m/devncore/icommander" alt="Commits-per-month"></a> |
 
 ![ICommander](https://user-images.githubusercontent.com/76234292/165553573-7a372490-10d6-4a1c-b7eb-2ef7e822f4a7.png)
-
-<br />
-
-## 특징
-
 
 <br />
 
@@ -142,6 +137,19 @@ Mainwindow 창 및 ViewModel 등을 포함하는 영역입니다.
 - [x] ImageSource
 
 <br />
+
+## 기능
+- 뒤로가기
+- 앞으로가기
+- 파일 우클릭
+- 폴더생성
+- Command Prompt
+- CopyTab
+
+| 우클릭 | 폴더생성 | CMD |
+|:--:|:--:|:--:|
+| ![우클릭](https://user-images.githubusercontent.com/76234292/165585045-7f4ab7b9-5dcd-47bc-aba5-92911909c383.png) | ![폴더생성](https://user-images.githubusercontent.com/76234292/165585062-145e1a35-3b68-4493-b3c2-b491e0850441.PNG) | ![명령프롬프트](https://user-images.githubusercontent.com/76234292/165585069-9e4a5b2b-46bc-4a26-b109-4230675c1874.PNG) |
+
 
 
 
