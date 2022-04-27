@@ -51,7 +51,6 @@
 
 ## 프로젝트 구조
 > 소스코드는  **`Based`** **`Core`** **`Implements`** **`Presentation`** **`Client`** 5개의 폴더 구조로 구성되어 있습니다. <br />
-> 각각의 폴더는 기능, 리소스, UI를 담당합니다.
  
 <details open>
   <summary>
@@ -102,14 +101,20 @@
 </details>
 
 
-### `Local`
+### `Based`
 로컬 기반에서 필요한 클래스 영역입니다. Model, Converter, 각종 Helper, Mvvm에 필요한 모듈, ViewModel 등 로컬에서 필요한 모든 클래스를 이 위치에서 관리합니다.
 
-### `Themes`
+### `Core`
 Generic.xaml을 포함한 리소스 분기 영역입니다. DefaultStyleKey에 해당하는 리소스를 약속된 위치(Generic.xaml)에서 다시 한번 ResourceDictionary 파일을 통해 분기하여 관리하도록 합니다.
 
-### `UI`
+### `Implements`
 DeafultStyleKey를 포함하는 CustomControl 영역입니다. **`Units`** 폴더는 ListBox, ListBoxItem, Button 등과 같이 하위 요소 수준의 컨트롤 객체를 포함합니다. 그리고 **`Views`** 폴더는 Window, UserControl, ContentControl과 같이 UI 레이아웃을 담당할 수 있는 ContentPresenter 객체를 포함합니다.
+
+### `Presentation`
+DeafultStyleKey를 포함하는 CustomControl 영역입니다. **`Units`** 폴더는 ListBox, ListBoxItem, Button 등과 같이 하위 요소 수준의 컨트롤 객체를 포함합니다. 그리고 **`Views`** 폴더는 Window, UserControl, ContentControl과 같이 UI 레이아웃을 담당할 수 있는 ContentPresenter 객체를 포함합니다.
+
+### `Client`
+프로젝트의 시작점 영역입니다.
 
 <br />
 
