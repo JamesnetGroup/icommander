@@ -125,23 +125,21 @@ DeafultStyleKey를 포함하는 CustomControl 영역입니다. **`Units`** 폴�
 - **숙련자:** C#과 WPF를 접해본 개발자라면 약 2시간 이내에 소스코드 전체를 작성 및 실행시키며 MVVM 패턴 구조의 이해를 도와줍니다.
 
 **ICommander**를 통해 학습할 수 있는 기술들은 아래와 같습니다.
+- [x] Mvvm 패턴
 - [x] CustomControl
 - [x] Trigger
-- [x] Mvvm 패턴
-- [x] DataContext
-- [x] RelayCommand
+- [x] ControlTemplate
 - [x] Binding
-- [x] RelativeSource TemplatedParent
-- [x] ListBox / ListBoxItem
+- [x] RelayCommand
+- [x] DataContext
+- [x] Application
 - [x] ItemsPresenter
 - [x] ContentPresenter
-- [x] GetContainerForItemOverride
-- [x] OnApplyTemplate
-- [x] Geometry
-- [x] Hex Color
+- [x] ListBox / ListBoxItem
 - [x] Transparent
-- [x] Application
-
+- [x] Toggle 
+- [x] DllImport 
+- [x] ImageSource
 
 <br />
 
