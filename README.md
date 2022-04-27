@@ -29,15 +29,15 @@ ICommander 는 xaml파일에서 버튼과 관련된 커맨드의 동작을 이�
 
 
 ## 개발 환경
-주요 개발 환경
  
-✔️ **WPF .NET Framework 4.8**
+✔️ **WPF .NET Core** &nbsp; [.NET 6.0]
 
-✔️ **Visual Studio 2019 **  
+✔️ **Visual Studio 2022**  
 <br/>
 
-![vs](https://user-images.githubusercontent.com/76234292/165136154-3f864caa-e0bc-40f6-86df-d8c7c69a6969.png)
+![11](https://user-images.githubusercontent.com/76234292/165532633-b5c90fad-6b62-4677-a638-48cff70ef398.png)
 
+<br />
 
 
 
