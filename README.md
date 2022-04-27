@@ -50,15 +50,57 @@
 <br />
 
 ## 프로젝트 구조
-> MVVM 패턴으로 만들어진 구조
+> 소스코드는  **`Local`** **`Themes`** **`UI`** 3개의 폴더 구조로 구성되어 있습니다. 각각의 폴더는 기능, 리소스, UI를 담당합니다.
 
-- 📁 Based
-- 📁 Core
-- 📁 Implements
-- 📁 Material
-- 📁 Presentation
-- 📁 Client
-- **Commander**
+<details open>
+  <summary>
+	📁 Based
+  </summary>
+
+  &nbsp;&nbsp;&nbsp;&nbsp; - Commander.Data  
+  &nbsp;&nbsp;&nbsp;&nbsp; - Commander.WindowsBase  
+  &nbsp;&nbsp;&nbsp;&nbsp; - Commander.WindowsReference  
+</details>
+
+<details open>
+  <summary>
+	📁 Core
+  </summary>
+
+  &nbsp;&nbsp;&nbsp;&nbsp; - Commander.Control  
+  &nbsp;&nbsp;&nbsp;&nbsp; - Commander.Converter  
+</details>
+
+<details open>
+  <summary>
+	📁 Implements
+  </summary>
+
+  &nbsp;&nbsp;&nbsp;&nbsp; - Commander.LayoutSupport  
+  &nbsp;&nbsp;&nbsp;&nbsp; - Commander.Resources  
+</details>
+
+<details open>
+  <summary>
+	📁 Presentation    
+  </summary>
+  
+  &nbsp;&nbsp;&nbsp;&nbsp; - 📁 Partials    
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  - Commander.Part.Explorer  
+  &nbsp;&nbsp;&nbsp;&nbsp; - 📁 Windows    
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  - Commander.Part.Main  
+    
+</details>
+
+<details open>
+  <summary>
+	📁 Client
+  </summary>
+
+  &nbsp;&nbsp;&nbsp;&nbsp; - Commander  
+</details>
+
+
 
 <br />
 
