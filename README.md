@@ -7,11 +7,8 @@
 - [학습 가이드](#학습-가이드)
 - [기능](#기능)
 
-<br />
-
 ## 소개
 > WPF 를 활용하여 MVVM 패턴으로 만든 윈도우 탐색기 입니다. 
-<br />
 
 | Star | License | Activity |
 |:----:|:-------:|:--------:|
@@ -19,7 +16,6 @@
 
 ![ICommander](https://user-images.githubusercontent.com/76234292/165553573-7a372490-10d6-4a1c-b7eb-2ef7e822f4a7.png)
 
-<br />
 
 ## 개발 환경
  
@@ -29,11 +25,8 @@
 
 ✔️ **C# 10.0**  
 
-<br/>
-
 ![11](https://user-images.githubusercontent.com/76234292/165532633-b5c90fad-6b62-4677-a638-48cff70ef398.png)
 
-<br />
 
 ## 프로젝트 구조
 > 소스코드는  **`Based`** **`Core`** **`Implements`** **`Presentation`** **`Client`** 5개의 폴더 구조로 구성되어 있습니다. <br />
