@@ -1,11 +1,4 @@
-<h1 align="center"> ICommander WPF</h1> <br>
-<p align="center"><img src="Images\logo.png", width="400"></p>
-
-<p align="center">
-  <a href="https://github.com/devncore/devncore"><strong>Devncore OpenSource</strong></a>
-</p>
-
-<br />
+# ICommander
 
 ## 목차
 - [소개](#소개)
