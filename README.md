@@ -1,5 +1,16 @@
 # ICommander
 
+This repository is a WPF program open source with the motif of an in-window explorer.
+
+<a href="https://github.com/devncore/devncore"><strong>더 알아보기 »</strong></a>
+  
+| Star | License | Activity |
+|:----:|:-------:|:--------:|
+| <a href="https://github.com/devncore/wpf-xaml-binding/stargazers"><img src="https://img.shields.io/github/stars/jameslee214/icommander" alt="Github Stars"></a> | <img src="https://img.shields.io/github/license/devncore/wpf-xaml-binding" alt="License"> | <a href="https://github.com/jameslee214/icommander/pulse"><img src="https://img.shields.io/github/commit-activity/m/jameslee214/icommander" alt="Commits-per-month"></a> |
+
+<br />
+
+
 ## 목차
 - [소개](#소개)
 - [개발 환경](#개발-환경)
