@@ -26,3 +26,13 @@ C:\github\icommander\Commander.Data\obj\Debug\netstandard2.0\Commander.Data.dll
 C:\github\icommander\Commander.Data\obj\Debug\netstandard2.0\Commander.Data.pdb
 C:\devncore\icommander\Commander.Data\obj\Debug\netstandard2.0\Commander.Data.csproj.AssemblyReference.cache
 C:\devncore\icommander\Commander.Data\obj\Debug\netstandard2.0\Commander.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\jamesworks\icommander\Commander.Data\bin\Debug\netstandard2.0\Commander.Data.deps.json
+C:\jamesworks\icommander\Commander.Data\bin\Debug\netstandard2.0\Commander.Data.dll
+C:\jamesworks\icommander\Commander.Data\bin\Debug\netstandard2.0\Commander.Data.pdb
+C:\jamesworks\icommander\Commander.Data\obj\Debug\netstandard2.0\Commander.Data.csproj.AssemblyReference.cache
+C:\jamesworks\icommander\Commander.Data\obj\Debug\netstandard2.0\Commander.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\jamesworks\icommander\Commander.Data\obj\Debug\netstandard2.0\Commander.Data.AssemblyInfoInputs.cache
+C:\jamesworks\icommander\Commander.Data\obj\Debug\netstandard2.0\Commander.Data.AssemblyInfo.cs
+C:\jamesworks\icommander\Commander.Data\obj\Debug\netstandard2.0\Commander.Data.csproj.CoreCompileInputs.cache
+C:\jamesworks\icommander\Commander.Data\obj\Debug\netstandard2.0\Commander.Data.dll
+C:\jamesworks\icommander\Commander.Data\obj\Debug\netstandard2.0\Commander.Data.pdb

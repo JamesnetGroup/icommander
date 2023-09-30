@@ -4,7 +4,7 @@
 library
 C#
 .cs
-C:\devncore\icommander\Commander.Part.Explorer\obj\Debug\
+C:\jamesworks\icommander\Commander.Part.Explorer\obj\Debug\
 Commander.Part.Explorer
 none
 false
@@ -13,7 +13,7 @@ DEBUG;TRACE
 3716932119
 
 9412005636
-231475944030
+231786385048
 App.xaml;Design\ExplorerViewResource.xaml;Views\ExplorerView.xaml;
 
 False
