@@ -1,5 +1,7 @@
 # ICommander [![English](https://img.shields.io/badge/Language-English-blue.svg)](README.md) [![한국어](https://img.shields.io/badge/Language-한국어-red.svg)](README.ko.md)
+
 MVVM 패턴을 구현한 WPF 기반의 윈도우 내 탐색기 애플리케이션
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![.NET](https://img.shields.io/badge/.NET-8.0-blue.svg)](https://dotnet.microsoft.com/download)
 [![Stars](https://img.shields.io/github/stars/jamesnet214/icommander.svg)](https://github.com/jamesnet214/icommander/stargazers)
