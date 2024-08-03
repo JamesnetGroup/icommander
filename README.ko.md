@@ -8,8 +8,8 @@ MVVM 패턴을 구현한 WPF 기반의 윈도우 내 탐색기 애플리케이�
 ## 프로젝트 개요
 ICommander는 사용자 정의 창 내에서 Windows 탐색기의 기능을 복제한 WPF 기반 애플리케이션입니다. 이 프로젝트는 실제 애플리케이션에서 MVVM 패턴을 구현하는 우수한 예시로, 개발자들에게 고급 WPF 기술과 적절한 프로젝트 구조화에 대한 통찰을 제공합니다.
 
-<img src="https://user-images.githubusercontent.com/76234292/165553573-7a372490-10d6-4a1c-b7eb-2ef7e822f4a7.png" width="49%"/>
-<img src="https://user-images.githubusercontent.com/76234292/165553573-7a372490-10d6-4a1c-b7eb-2ef7e822f4a7.png" width="49%"/>
+<img src="https://github.com/user-attachments/assets/49d7f1eb-ea7c-4455-9ade-70fec6f2ab48" width="49%"/>
+<img src="https://github.com/user-attachments/assets/3912439e-7288-4b16-8b0d-d30d2b4b3823" width="49%"/>
 
 ## 주요 기술 및 구현 사항
 #### 1. MVVM 아키텍처
