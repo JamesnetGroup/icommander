@@ -1,151 +1,95 @@
-# ICommander
+# ICommander [![English](https://img.shields.io/badge/Language-English-blue.svg)](README.md) [![한국어](https://img.shields.io/badge/Language-한국어-red.svg)](README.ko.md)
 
-This repository is a WPF program open source with the motif of an in-window explorer.
+A WPF-based in-window explorer application implementing MVVM pattern
 
-<a href="https://github.com/devncore/devncore"><strong>더 알아보기 »</strong></a>
-  
-| Star | License | Activity |
-|:----:|:-------:|:--------:|
-| <a href="https://github.com/devncore/wpf-xaml-binding/stargazers"><img src="https://img.shields.io/github/stars/jameslee214/icommander" alt="Github Stars"></a> | <img src="https://img.shields.io/github/license/devncore/wpf-xaml-binding" alt="License"> | <a href="https://github.com/jameslee214/icommander/pulse"><img src="https://img.shields.io/github/commit-activity/m/jameslee214/icommander" alt="Commits-per-month"></a> |
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![.NET](https://img.shields.io/badge/.NET-8.0-blue.svg)](https://dotnet.microsoft.com/download)
+[![Stars](https://img.shields.io/github/stars/jamesnet214/icommander.svg)](https://github.com/jamesnet214/icommander/stargazers)
+[![Issues](https://img.shields.io/github/issues/jamesnet214/icommander.svg)](https://github.com/jamesnet214/icommander/issues)
 
-<br />
+## Project Overview
+ICommander is a WPF-based application that replicates the functionality of Windows Explorer within a custom window. This project serves as an excellent example of implementing MVVM pattern in a real-world application, providing developers with insights into advanced WPF techniques and proper project structuring.
 
+<img src="https://user-images.githubusercontent.com/76234292/165553573-7a372490-10d6-4a1c-b7eb-2ef7e822f4a7.png" width="49%"/>
+<img src="https://user-images.githubusercontent.com/76234292/165553573-7a372490-10d6-4a1c-b7eb-2ef7e822f4a7.png" width="49%"/>
 
-## 목차
-- [소개](#소개)
-- [개발 환경](#개발-환경)
-- [프로젝트 구조](#프로젝트-구조)
-- [학습 가이드](#학습-가이드)
-- [기능](#기능)
+## Key Technologies and Implementations
+#### 1. MVVM Architecture
+- [x] Full implementation of MVVM pattern
+- [x] Proper use of DataContext and Binding
+- [x] Implementation of RelayCommand for action binding
 
-## 소개
-> WPF 를 활용하여 MVVM 패턴으로 만든 윈도우 탐색기 입니다. 
+#### 2. Custom Controls and Templates
+- [x] Development of custom controls for file and folder representation
+- [x] Advanced usage of ControlTemplate and DataTemplate
+- [x] Implementation of Triggers for dynamic UI updates
 
-| Star | License | Activity |
-|:----:|:-------:|:--------:|
-| <a href="https://github.com/devncore/icommander/stargazers"><img src="https://img.shields.io/github/stars/devncore/icommander" alt="Github Stars"></a> | <img src="https://img.shields.io/github/license/devncore/icommander" alt="License"> | <a href="https://github.com/devncore/icommander/pulse"><img src="https://img.shields.io/github/commit-activity/m/devncore/icommander" alt="Commits-per-month"></a> |
+#### 3. File System Integration
+- [x] Integration with Windows file system using DllImport
+- [x] Implementation of file and folder operations (create, delete, rename)
+- [x] File and folder browsing with back and forward navigation
 
-![ICommander](https://user-images.githubusercontent.com/76234292/165553573-7a372490-10d6-4a1c-b7eb-2ef7e822f4a7.png)
+#### 4. UI/UX Design
+- [x] Creation of a Windows Explorer-like interface
+- [x] Implementation of context menus for file and folder operations
+- [x] Tab-based interface for multiple folder views
 
+#### 5. Performance Optimization
+- [x] Efficient loading and display of file system contents
+- [x] Smooth navigation and operation handling
 
-## 개발 환경
- 
-✔️ **WPF .NET Core** &nbsp; [.NET 6.0]
+## Technology Stack
+- .NET 8.0
+- WPF (Windows Presentation Foundation)
+- C# 10.0
+- MVVM (Model-View-ViewModel) pattern
 
-✔️ **Visual Studio 2022**  
+## Getting Started
+### Prerequisites
+- Visual Studio 2022 or later
+- .NET 8.0 SDK
 
-✔️ **C# 10.0**  
+### Installation and Execution
+#### 1. Clone the repository:
 
-![11](https://user-images.githubusercontent.com/76234292/165532633-b5c90fad-6b62-4677-a638-48cff70ef398.png)
+```
+git clone https://github.com/jamesnet214/icommander.git
+```
 
+#### 2. Open the solution
+- [x] Visual Studio
+- [x] Visual Studio Code
+- [x] Jetbrains Rider
 
-## 프로젝트 구조
-> 소스코드는  **`Based`** **`Core`** **`Implements`** **`Presentation`** **`Client`** 5개의 폴더 구조로 구성되어 있습니다. <br />
- 
-<details open>
-  <summary>
-	📁 Based
-  </summary>
+<img src="https://github.com/user-attachments/assets/af70f422-7057-4e77-a54d-042ee8358d2a" width="32%"/>
+<img src="https://github.com/user-attachments/assets/e4feaa10-a107-4b58-8d13-1d8be620ec62" width="32%"/>
+<img src="https://github.com/user-attachments/assets/5ff487f6-55e4-43e1-9abf-f8d419ee6943" width="32%"/>
 
-  &nbsp;&nbsp;&nbsp;&nbsp; - Commander.Data  
-  &nbsp;&nbsp;&nbsp;&nbsp; - Commander.WindowsBase  
-  &nbsp;&nbsp;&nbsp;&nbsp; - Commander.WindowsReference  
-</details>
+#### 3. Build and Run
+- [x] Windows 11 recommended
 
-<details open>
-  <summary>
-	📁 Core
-  </summary>
+## Usage
+1. Launch the ICommander application
+2. Navigate through your file system using the explorer-like interface
+3. Use context menus for file and folder operations
+4. Utilize the command prompt feature for advanced operations
 
-  &nbsp;&nbsp;&nbsp;&nbsp; - Commander.Control  
-  &nbsp;&nbsp;&nbsp;&nbsp; - Commander.Converter  
-</details>
+## Project Structure
+The project is organized into five main folders:
+- **Based**: Contains core classes for file operations, window modules, and MVVM basics
+- **Core**: Defines basic controls and file converters
+- **Implements**: Includes layouts and resources
+- **Presentation**: Contains the main window and view models
+- **Client**: Entry point of the application
 
-<details open>
-  <summary>
-	📁 Implements
-  </summary>
+## Contributing
+If you'd like to contribute to improving the project, please send a Pull Request. All forms of contribution are welcome!
 
-  &nbsp;&nbsp;&nbsp;&nbsp; - Commander.LayoutSupport  
-  &nbsp;&nbsp;&nbsp;&nbsp; - Commander.Resources  
-</details>
+## License
+This project is distributed under the MIT license. For more details, please refer to the [LICENSE](https://github.com/jamesnet214/icommander/blob/main/LICENSE) file.
 
-<details open>
-  <summary>
-	📁 Presentation    
-  </summary>
-  
-  &nbsp;&nbsp;&nbsp;&nbsp; - 📁 Partials    
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  - Commander.Part.Explorer  
-  &nbsp;&nbsp;&nbsp;&nbsp; - 📁 Windows    
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  - Commander.Part.Main  
-    
-</details>
+## Contact
+- Website: https://jamesnet.dev
+- Email: james@jamesnet.dev, vickyqu115@hotmail.com
 
-<details open>
-  <summary>
-	📁 Client
-  </summary>
-
-  &nbsp;&nbsp;&nbsp;&nbsp; - Commander  
-</details>
-
-
-### `Based`
-로컬 기반에서 필요한 클래스 영역입니다. File, Window Module, Mvvm에 필요한 모듈 등 로컬에서 필요한 모든 클래스를 이 위치에서 관리합니다.
-
-### `Core`
-기본 Control 및 File Converter 등을 정의한 영역입니다. 
-
-### `Implements`
-Layout 및 Resources를 포함하는 영역입니다.
-
-### `Presentation`
-Mainwindow 창 및 ViewModel 등을 포함하는 영역입니다. 
-
-### `Client`
-프로젝트의 시작점 영역입니다.
-
-<br />
-
-## 학습 가이드
-
-- WPF 프로젝트를 올바르게 구현하는 방법을 학습 합니다.
-- **`윈도우탐색기`** 를 상용 컴포넌트에 의지하지 않고 WPF로만 구현 할 수 있습니다.
-- MVVM 패턴을 직접 구현하여 WPF에 대해 자세하게 이해하고 학습 할 수 있습니다.
-- **초보자:** WPF와 MVVM의 이해가 부족하더라도 컴포넌트의 도움 없이 소스코드를 처음부터 작성하고 완성시켜 실행시킬 수 있습니다.
-- **숙련자:** C#과 WPF를 접해본 개발자라면 약 2시간 이내에 소스코드 전체를 작성 및 실행시키며 MVVM 패턴 구조의 이해를 도와줍니다.
-
-**ICommander**를 통해 학습할 수 있는 기술들은 아래와 같습니다.
-- [x] Mvvm 패턴
-- [x] CustomControl
-- [x] Trigger
-- [x] ControlTemplate
-- [x] Binding
-- [x] RelayCommand
-- [x] DataContext
-- [x] Application
-- [x] ItemsPresenter
-- [x] ContentPresenter
-- [x] ListBox / ListBoxItem
-- [x] Transparent
-- [x] Toggle 
-- [x] DllImport 
-- [x] ImageSource
-
-<br />
-
-## 기능
-- 뒤로가기
-- 앞으로가기
-- 파일 우클릭
-- 폴더생성
-- Command Prompt
-- CopyTab
-
-| 우클릭 | 폴더생성 | CMD |
-|:--:|:--:|:--:|
-| ![우클릭](https://user-images.githubusercontent.com/76234292/165585045-7f4ab7b9-5dcd-47bc-aba5-92911909c383.png) | ![폴더생성](https://user-images.githubusercontent.com/76234292/165585062-145e1a35-3b68-4493-b3c2-b491e0850441.PNG) | ![명령프롬프트](https://user-images.githubusercontent.com/76234292/165585069-9e4a5b2b-46bc-4a26-b109-4230675c1874.PNG) |
-
-<br />
-
+Explore advanced WPF techniques and MVVM implementation with ICommander!
