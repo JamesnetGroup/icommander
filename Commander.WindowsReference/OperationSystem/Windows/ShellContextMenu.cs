@@ -7,53 +7,18 @@ using System.IO;
 
 namespace Commander.WindowsReference.OperationSystem.Windows
 {
-    /// <summary>
-    /// "Stand-alone" shell context menu
-    /// 
-    /// It isn't really debugged but is mostly working.
-    /// Create an instance and call ShowContextMenu with a list of FileInfo for the files.
-    /// Limitation is that it only handles files in the same directory but it can be fixed
-    /// by changing the way files are translated into PIDLs.
-    /// 
-    /// Based on FileBrowser in C# from CodeProject
-    /// http://www.codeproject.com/useritems/FileBrowser.asp
-    /// 
-    /// Hooking class taken from MSDN Magazine Cutting Edge column
-    /// http://msdn.microsoft.com/msdnmag/issues/02/10/CuttingEdge/
-    /// 
-    /// Andreas Johansson
-    /// afjohansson@hotmail.com
-    /// http://afjohansson.spaces.live.com
-    /// </summary>
-    /// <example>
-    ///    ShellContextMenu scm = new ShellContextMenu();
-    ///    FileInfo[] files = new FileInfo[1];
-    ///    files[0] = new FileInfo(@"c:\windows\notepad.exe");
-    ///    scm.ShowContextMenu(this.Handle, files, Cursor.Position);
-    /// </example>
     public class ShellContextMenu : NativeWindow
     {
-        #region Constructor
-        /// <summary>Default constructor</summary>
         public ShellContextMenu()
         {
             this.CreateHandle(new CreateParams());
         }
-        #endregion
 
-        #region Destructor
-        /// <summary>Ensure all resources get released</summary>
         ~ShellContextMenu()
         {
             ReleaseAll();
         }
-        #endregion
-
-        #region GetContextMenuInterfaces()
-        /// <summary>Gets the interfaces to the context menu</summary>
-        /// <param name="oParentFolder">Parent folder</param>
-        /// <param name="arrPIDLs">PIDLs</param>
-        /// <returns>true if it got the interfaces, otherwise false</returns>
+        
         private bool GetContextMenuInterfaces(IShellFolder oParentFolder, IntPtr[] arrPIDLs, out IntPtr ctxMenuPtr)
         {
             int nResult = oParentFolder.GetUIObjectOf(
@@ -77,17 +42,7 @@ namespace Commander.WindowsReference.OperationSystem.Windows
                 return false;
             }
         }
-        #endregion
 
-        #region Override
-
-        /// <summary>
-        /// This method receives WindowMessages. It will make the "Open With" and "Send To" work 
-        /// by calling HandleMenuMsg and HandleMenuMsg2. It will also call the OnContextMenuMouseHover 
-        /// method of Browser when hovering over a ContextMenu item.
-        /// </summary>
-        /// <param name="m">the Message of the Browser's WndProc</param>
-        /// <returns>true if the message has been handled, false otherwise</returns>
         protected override void WndProc(ref Message m)
         {
             #region IContextMenu
@@ -138,9 +93,6 @@ namespace Commander.WindowsReference.OperationSystem.Windows
             base.WndProc(ref m);
         }
 
-        #endregion
-
-        #region InvokeCommand
         private void InvokeCommand(IContextMenu oContextMenu, uint nCmd, string strFolder, Point pointInvoke)
         {
             CMINVOKECOMMANDINFOEX invoke = new CMINVOKECOMMANDINFOEX();
@@ -157,12 +109,7 @@ namespace Commander.WindowsReference.OperationSystem.Windows
 
             oContextMenu.InvokeCommand(ref invoke);
         }
-        #endregion
 
-        #region ReleaseAll()
-        /// <summary>
-        /// Release all allocated interfaces, PIDLs 
-        /// </summary>
         private void ReleaseAll()
         {
             if (null != _oContextMenu)
@@ -196,13 +143,7 @@ namespace Commander.WindowsReference.OperationSystem.Windows
                 _arrPIDLs = null;
             }
         }
-        #endregion
 
-        #region GetDesktopFolder()
-        /// <summary>
-        /// Gets the desktop folder
-        /// </summary>
-        /// <returns>IShellFolder for desktop folder</returns>
         private IShellFolder GetDesktopFolder()
         {
             IntPtr pUnkownDesktopFolder = IntPtr.Zero;
@@ -220,14 +161,7 @@ namespace Commander.WindowsReference.OperationSystem.Windows
 
             return _oDesktopFolder;
         }
-        #endregion
 
-        #region GetParentFolder()
-        /// <summary>
-        /// Gets the parent folder
-        /// </summary>
-        /// <param name="folderName">Folder path</param>
-        /// <returns>IShellFolder for the folder (relative from the desktop)</returns>
         private IShellFolder GetParentFolder(string folderName)
         {
             if (null == _oParentFolder)
@@ -271,14 +205,7 @@ namespace Commander.WindowsReference.OperationSystem.Windows
 
             return _oParentFolder;
         }
-        #endregion
 
-        #region GetPIDLs()
-        /// <summary>
-        /// Get the PIDLs
-        /// </summary>
-        /// <param name="arrFI">Array of FileInfo</param>
-        /// <returns>Array of PIDLs</returns>
         protected IntPtr[] GetPIDLs(FileInfo[] arrFI)
         {
             if (null == arrFI || 0 == arrFI.Length)
@@ -313,11 +240,6 @@ namespace Commander.WindowsReference.OperationSystem.Windows
             return arrPIDLs;
         }
 
-        /// <summary>
-        /// Get the PIDLs
-        /// </summary>
-        /// <param name="arrFI">Array of DirectoryInfo</param>
-        /// <returns>Array of PIDLs</returns>
         protected IntPtr[] GetPIDLs(DirectoryInfo[] arrFI)
         {
             if (null == arrFI || 0 == arrFI.Length)
@@ -351,13 +273,7 @@ namespace Commander.WindowsReference.OperationSystem.Windows
 
             return arrPIDLs;
         }
-        #endregion
 
-        #region FreePIDLs()
-        /// <summary>
-        /// Free the PIDLs
-        /// </summary>
-        /// <param name="arrPIDLs">Array of PIDLs (IntPtr)</param>
         protected void FreePIDLs(IntPtr[] arrPIDLs)
         {
             if (null != arrPIDLs)
@@ -372,9 +288,7 @@ namespace Commander.WindowsReference.OperationSystem.Windows
                 }
             }
         }
-        #endregion
 
-        #region InvokeContextMenuDefault
         private void InvokeContextMenuDefault(FileInfo[] arrFI)
         {
             // Release all resources first.
@@ -430,15 +344,7 @@ namespace Commander.WindowsReference.OperationSystem.Windows
                 ReleaseAll();
             }
         }
-        #endregion
 
-        #region ShowContextMenu()
-
-        /// <summary>
-        /// Shows the context menu
-        /// </summary>
-        /// <param name="files">FileInfos (should all be in same directory)</param>
-        /// <param name="pointScreen">Where to show the menu</param>
         public void ShowContextMenu(FileInfo[] files, Point pointScreen)
         {
             // Release all resources first.
@@ -447,11 +353,6 @@ namespace Commander.WindowsReference.OperationSystem.Windows
             this.ShowContextMenu(pointScreen);
         }
 
-        /// <summary>
-        /// Shows the context menu
-        /// </summary>
-        /// <param name="dirs">DirectoryInfos (should all be in same directory)</param>
-        /// <param name="pointScreen">Where to show the menu</param>
         public void ShowContextMenu(DirectoryInfo[] dirs, Point pointScreen)
         {
             // Release all resources first.
@@ -460,11 +361,6 @@ namespace Commander.WindowsReference.OperationSystem.Windows
             this.ShowContextMenu(pointScreen);
         }
 
-        /// <summary>
-        /// Shows the context menu
-        /// </summary>
-        /// <param name="arrFI">FileInfos (should all be in same directory)</param>
-        /// <param name="pointScreen">Where to show the menu</param>
         private void ShowContextMenu(Point pointScreen)
         {
             IntPtr pMenu = IntPtr.Zero,
@@ -543,9 +439,7 @@ namespace Commander.WindowsReference.OperationSystem.Windows
                 ReleaseAll();
             }
         }
-        #endregion
 
-        #region Local variabled
         private IContextMenu _oContextMenu;
         private IContextMenu2 _oContextMenu2;
         private IContextMenu3 _oContextMenu3;
@@ -553,9 +447,6 @@ namespace Commander.WindowsReference.OperationSystem.Windows
         private IShellFolder _oParentFolder;
         private IntPtr[] _arrPIDLs;
         private string _strParentFolder;
-        #endregion
-
-        #region Variables and Constants
 
         private const int MAX_PATH = 260;
         private const uint CMD_FIRST = 1;
@@ -566,10 +457,6 @@ namespace Commander.WindowsReference.OperationSystem.Windows
 
         private static int cbMenuItemInfo = Marshal.SizeOf(typeof(MENUITEMINFO));
         private static int cbInvokeCommand = Marshal.SizeOf(typeof(CMINVOKECOMMANDINFOEX));
-
-        #endregion
-
-        #region DLL Import
 
         // Retrieves the IShellFolder interface for the desktop folder, which is the root of the Shell's namespace.
         [DllImport("shell32.dll")]
@@ -595,18 +482,10 @@ namespace Commander.WindowsReference.OperationSystem.Windows
         [DllImport("user32", SetLastError = true, CharSet = CharSet.Auto)]
         private static extern int GetMenuDefaultItem(IntPtr hMenu, bool fByPos, uint gmdiFlags);
 
-        #endregion
-
-        #region Shell GUIDs
-
         private static Guid IID_IShellFolder = new Guid("{000214E6-0000-0000-C000-000000000046}");
         private static Guid IID_IContextMenu = new Guid("{000214e4-0000-0000-c000-000000000046}");
         private static Guid IID_IContextMenu2 = new Guid("{000214f4-0000-0000-c000-000000000046}");
         private static Guid IID_IContextMenu3 = new Guid("{bcfce0a0-ec17-11d0-8d10-00a0c90f2719}");
-
-        #endregion
-
-        #region Structs
 
         [StructLayout(LayoutKind.Sequential)]
         private struct CWPSTRUCT
@@ -708,10 +587,6 @@ namespace Commander.WindowsReference.OperationSystem.Windows
             public int x;
             public int y;
         }
-
-        #endregion
-
-        #region Enums
 
         // Defines the values used with the IShellFolder::GetDisplayNameOf and IShellFolder::SetNameOf 
         // methods to specify the type of file or folder names used by those methods
@@ -1150,9 +1025,6 @@ namespace Commander.WindowsReference.OperationSystem.Windows
             NULL = 0
         }
 
-        #endregion
-
-        #region IShellFolder
         [ComImport]
         [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
         [Guid("000214E6-0000-0000-C000-000000000046")]
@@ -1264,9 +1136,7 @@ namespace Commander.WindowsReference.OperationSystem.Windows
                 SHGNO uFlags,
                 out IntPtr ppidlOut);
         }
-        #endregion
 
-        #region IContextMenu
         [ComImport()]
         [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
         [GuidAttribute("000214e4-0000-0000-c000-000000000046")]
@@ -1385,10 +1255,8 @@ namespace Commander.WindowsReference.OperationSystem.Windows
                 IntPtr lParam,
                 IntPtr plResult);
         }
-        #endregion
     }
 
-    #region ShellContextMenuException
     public class ShellContextMenuException : Exception
     {
         /// <summary>Default contructor</summary>
@@ -1403,19 +1271,14 @@ namespace Commander.WindowsReference.OperationSystem.Windows
         {
         }
     }
-    #endregion
 
-    #region Class HookEventArgs
     public class HookEventArgs : EventArgs
     {
         public int HookCode;	// Hook code
         public IntPtr wParam;	// WPARAM argument
         public IntPtr lParam;	// LPARAM argument
     }
-    #endregion
-
-    #region Enum HookType
-    // Hook Types
+    
     public enum HookType : int
     {
         WH_JOURNALRECORD = 0,
@@ -1434,9 +1297,7 @@ namespace Commander.WindowsReference.OperationSystem.Windows
         WH_KEYBOARD_LL = 13,
         WH_MOUSE_LL = 14
     }
-    #endregion
 
-    #region Class LocalWindowsHook
     public class LocalWindowsHook
     {
         // ************************************************************************
@@ -1519,8 +1380,6 @@ namespace Commander.WindowsReference.OperationSystem.Windows
         }
         // ************************************************************************
 
-
-        #region Win32 Imports
         // ************************************************************************
         // Win32: SetWindowsHookEx()
         [DllImport("user32.dll")]
@@ -1542,16 +1401,10 @@ namespace Commander.WindowsReference.OperationSystem.Windows
         protected static extern int CallNextHookEx(IntPtr hhook,
             int code, IntPtr wParam, IntPtr lParam);
         // ************************************************************************
-        #endregion
     }
-    #endregion
-
-    #region ShellHelper
 
     internal static class ShellHelper
     {
-        #region Low/High Word
-
         /// <summary>
         /// Retrieves the High Word of a WParam of a WindowMessage
         /// </summary>
@@ -1574,9 +1427,5 @@ namespace Commander.WindowsReference.OperationSystem.Windows
         {
             return (uint)ptr & 0xffff;
         }
-
-        #endregion
     }
-
-    #endregion
 }
