@@ -36,3 +36,14 @@ C:\jamesworks\icommander\Commander.Data\obj\Debug\netstandard2.0\Commander.Data.
 C:\jamesworks\icommander\Commander.Data\obj\Debug\netstandard2.0\Commander.Data.csproj.CoreCompileInputs.cache
 C:\jamesworks\icommander\Commander.Data\obj\Debug\netstandard2.0\Commander.Data.dll
 C:\jamesworks\icommander\Commander.Data\obj\Debug\netstandard2.0\Commander.Data.pdb
+C:\vickyworks\icommander\Commander.Data\bin\Debug\netstandard2.0\Commander.Data.deps.json
+C:\vickyworks\icommander\Commander.Data\bin\Debug\netstandard2.0\Commander.Data.dll
+C:\vickyworks\icommander\Commander.Data\bin\Debug\netstandard2.0\Commander.Data.pdb
+C:\vickyworks\icommander\Commander.Data\obj\Debug\netstandard2.0\Commander.Data.csproj.AssemblyReference.cache
+C:\vickyworks\icommander\Commander.Data\obj\Debug\netstandard2.0\Commander.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\vickyworks\icommander\Commander.Data\obj\Debug\netstandard2.0\Commander.Data.AssemblyInfoInputs.cache
+C:\vickyworks\icommander\Commander.Data\obj\Debug\netstandard2.0\Commander.Data.AssemblyInfo.cs
+C:\vickyworks\icommander\Commander.Data\obj\Debug\netstandard2.0\Commander.Data.csproj.CoreCompileInputs.cache
+C:\vickyworks\icommander\Commander.Data\obj\Debug\netstandard2.0\Commander.Data.sourcelink.json
+C:\vickyworks\icommander\Commander.Data\obj\Debug\netstandard2.0\Commander.Data.dll
+C:\vickyworks\icommander\Commander.Data\obj\Debug\netstandard2.0\Commander.Data.pdb

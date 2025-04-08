@@ -15,3 +15,9 @@ C:\github\icommander\Commander.Converter\obj\Debug\Commander.Converter.csproj.Co
 C:\github\icommander\Commander.Converter\obj\Debug\Commander.Converter.dll
 C:\github\icommander\Commander.Converter\obj\Debug\Commander.Converter.pdb
 C:\devncore\icommander\Commander.Converter\obj\Debug\Commander.Converter.csproj.AssemblyReference.cache
+C:\vickyworks\icommander\Commander.Converter\bin\Debug\Commander.Converter.dll
+C:\vickyworks\icommander\Commander.Converter\bin\Debug\Commander.Converter.pdb
+C:\vickyworks\icommander\Commander.Converter\obj\Debug\Commander.Converter.csproj.AssemblyReference.cache
+C:\vickyworks\icommander\Commander.Converter\obj\Debug\Commander.Converter.csproj.CoreCompileInputs.cache
+C:\vickyworks\icommander\Commander.Converter\obj\Debug\Commander.Converter.dll
+C:\vickyworks\icommander\Commander.Converter\obj\Debug\Commander.Converter.pdb

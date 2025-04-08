@@ -15,16 +15,11 @@ namespace Commander.Part.Explorer.ViewModels
 {
 	public partial class ExplorerViewModel : ObservableObject
     {
-        #region Variables
-
         internal bool IsExplorerUpdated;
         private Stack<FileData> UndoList;
         private Stack<FileData> RedoList;
         private ExplorerWatcher FileWatcher;
         private ExplorerRefreshWorker RefreshWorker;
-        #endregion
-
-        #region ICommand
 
         public ICommand MoveCommand { get; set; }
         public ICommand UndoCommand { get; set; }
@@ -35,9 +30,6 @@ namespace Commander.Part.Explorer.ViewModels
         public ICommand NewCommand { get; set; }
         public ICommand ChooseCommand { get; set; }
         public ICommand KeyDownCommand { get; set; }
-        #endregion
-
-        #region IsMoveUpEnabled
 
         private bool _isMoveUpEnabled;
         public bool IsMoveUpEnabled
@@ -45,9 +37,6 @@ namespace Commander.Part.Explorer.ViewModels
             get { return _isMoveUpEnabled; }
             set { _isMoveUpEnabled = value; base.OnPropertyChanged(); }
         }
-        #endregion
-
-        #region IsUndoEnabled
 
         private bool _isUndoEnabled;
         public bool IsUndoEnabled
@@ -55,9 +44,6 @@ namespace Commander.Part.Explorer.ViewModels
             get { return _isUndoEnabled; }
             set { _isUndoEnabled = value; base.OnPropertyChanged(); }
         }
-        #endregion
-
-        #region IsRedoEnabled
 
         private bool _isRedoEnabled;
         public bool IsRedoEnabled
@@ -65,9 +51,6 @@ namespace Commander.Part.Explorer.ViewModels
             get { return _isRedoEnabled; }
             set { _isRedoEnabled = value; base.OnPropertyChanged(); }
         }
-        #endregion
-
-        #region IsHiddenVIsibility
 
         private bool _isHiddenVisibility;
         public bool IsHiddenVisibility
@@ -75,9 +58,6 @@ namespace Commander.Part.Explorer.ViewModels
             get { return _isHiddenVisibility; }
             set { _isHiddenVisibility = value; base.OnPropertyChanged(); }
         }
-        #endregion
-
-        #region FileDatas
 
         private List<FileData> _fileDatas;
         public List<FileData> FileDatas
@@ -92,9 +72,6 @@ namespace Commander.Part.Explorer.ViewModels
             get { return _fileData; }
             set { _fileData = value; base.OnPropertyChanged(); }
         }
-        #endregion
-
-        #region Current
 
         private FileData _current;
         public FileData Current
@@ -102,9 +79,6 @@ namespace Commander.Part.Explorer.ViewModels
             get { return _current; }
             set { _current = value; OnPropertyChanged(); }
         }
-        #endregion
-
-        #region Constructor
 
         public ExplorerViewModel()
         {
@@ -118,9 +92,6 @@ namespace Commander.Part.Explorer.ViewModels
             ChooseCommand = new RelayCommand<FileData>(DoubleClick);
             KeyDownCommand = new RelayCommand<KeyEventArgs>(InputKeys);
         }
-        #endregion
-
-        #region OnViewLoaded
 
         protected override void OnViewLoaded()
         {
@@ -137,9 +108,6 @@ namespace Commander.Part.Explorer.ViewModels
 
             InitFileAsync();
         }
-        #endregion
-
-        #region PromptClick
 
         private void PromptClick(object obj)
         {
@@ -153,9 +121,6 @@ namespace Commander.Part.Explorer.ViewModels
             };
             proc.Start();
         }
-        #endregion
-
-        #region MoveClick
 
         private void MoveClick(object obj)
         {
@@ -165,9 +130,6 @@ namespace Commander.Part.Explorer.ViewModels
                 DoubleClick(Current);
             }
         }
-        #endregion
-
-        #region UndoClick
 
         private void UndoClick(object obj)
         {
@@ -179,9 +141,6 @@ namespace Commander.Part.Explorer.ViewModels
             FileDatas = FileDirectory.GetCurrentData(FileData.FullName, true);
             SetButtons();
         }
-        #endregion
-
-        #region RedoClick
 
         private void RedoClick(object obj)
         {
@@ -190,33 +149,19 @@ namespace Commander.Part.Explorer.ViewModels
             FileDatas = FileDirectory.GetCurrentData(FileData.FullName, true);
             SetButtons();
         }
-        #endregion
-
-        #region NewClick
 
         private void NewClick(object obj)
         {
         }
-        #endregion
-
-        #region CopyClick
 
         private void CopyClick(object obj)
         {
-            //view.NewTabItemClick.Invoke(this.view);
         }
-        #endregion
-
-        #region CloseClick
 
         private void CloseClick(object obj)
         {
-            //view.TabItemClosed.Invoke(obj);
             Window.GetWindow(View).Close();
         }
-        #endregion
-
-        #region DoubleClick
 
         private void DoubleClick(FileData item)
         {
@@ -240,9 +185,6 @@ namespace Commander.Part.Explorer.ViewModels
                 Process.Start(Current.FullName);
             }
         }
-        #endregion
-
-        #region InputKey
 
         private void InputKeys(KeyEventArgs e)
         {
@@ -254,9 +196,6 @@ namespace Commander.Part.Explorer.ViewModels
                 case Key.Back: GoBack(); break;
             }
         }
-        #endregion
-
-        #region GoBack
 
         private void GoBack()
         {
@@ -269,7 +208,6 @@ namespace Commander.Part.Explorer.ViewModels
                 RedoClick(null);
             }
         }
-        #endregion
 
         public void InitFileAsync()
         {
@@ -283,14 +221,9 @@ namespace Commander.Part.Explorer.ViewModels
             FileWatcher.Run();
         }
 
-        #region Refresh
-
         internal void Refresh() => Refresh(Current.FullName);
 
         internal void Refresh(string path) => View.Dispatcher.Invoke(() => FileDatas = FileDirectory.GetCurrentData(path, true));
-        #endregion
-
-        #region SetButtons
 
         private void SetButtons()
         {
@@ -306,6 +239,5 @@ namespace Commander.Part.Explorer.ViewModels
                 FileWatcher.ChangeWatchPath(Current.FullName);
             }
         }
-        #endregion
     }
 }

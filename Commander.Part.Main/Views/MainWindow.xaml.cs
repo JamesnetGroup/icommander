@@ -14,7 +14,6 @@ namespace Commander.Part.Main.Views
 
         public override void OnApplyTemplate()
         {
-            // TODO James: Temp sourcecode
             base.OnApplyTemplate();
             ResizeButton = this.Template.FindName("PART_Resize", this) as Thumb;
             ResizeButton.DragDelta += OnDragDelta;
