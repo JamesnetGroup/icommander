@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="OperationSystem\Windows\ImageGenerator.cs" />
     <Compile Include="OperationSystem\Windows\ShellContextMenu.cs" />
+    <Compile Include="OperationSystem\Windows\ShellHelper.cs" />
     <Compile Include="OperationSystem\Windows\SystemIcon.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
