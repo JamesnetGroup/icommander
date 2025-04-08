@@ -106,9 +106,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Commander.Control\Commander.Control.csproj">
       <Project>{2BD88230-A59F-4E01-9FDE-245BEF9BBFCB}</Project>

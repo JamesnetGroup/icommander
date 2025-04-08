@@ -68,10 +68,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Windows\Controls\EditTextBox.cs" />
-    <Compile Include="Windows\Controls\NcoreExploer.cs" />
     <Compile Include="Windows\Controls\NcoreIcon.cs" />
-    <Compile Include="Windows\Controls\NcoreTabControl.cs" />
-    <Compile Include="Windows\Controls\NcoreTabGrid.cs" />
     <Compile Include="Windows\Controls\NcoreWindow.cs" />
     <Compile Include="Windows\Controls\NcoreView.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">

@@ -20,7 +20,7 @@ namespace Commander.Windows.Controls
             TaskLayout.MouseMove += TaskLayout_MouseMove;
         }
 
-        private void TaskLayout_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
+        private void TaskLayout_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
             {
@@ -28,7 +28,7 @@ namespace Commander.Windows.Controls
             }
         }
 
-        private void RiotView_Loaded(object sender, System.Windows.RoutedEventArgs e)
+        private void RiotView_Loaded(object sender, RoutedEventArgs e)
         {
             if (DataContext is ObservableObject vm)
             {
